@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.groep3.Controller.FruitController;
+import com.groep3.Controller.MainScreenController;
+
 /**
  * JavaFX App
  */
@@ -17,7 +20,13 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("mainscreen"), 1280, 720);
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("mainscreen.fxml"));
+        Parent root = loader.load();
+
+        MainScreenController controller = loader.getController();
+        controller.setFruitController(new FruitController());
+
+        scene = new Scene(root, 1280, 720);
         stage.setScene(scene);
         stage.show();
     }
