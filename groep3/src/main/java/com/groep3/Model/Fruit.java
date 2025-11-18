@@ -22,7 +22,7 @@ public class Fruit {
         this.price = price;
     }
 
-    // Getters en setters (deze moeten wél public zijn!)
+    // Getters en setters
     public String getName() {
         return name;
     }
