@@ -6,6 +6,10 @@ public class Fruit {
     private String imagePath;
     private double price;
 
+    public Fruit() {
+        
+    }
+
     // Constructor met afbeelding
     public Fruit(String name, String description, String imagePath, double price) {
         this.name = name;
