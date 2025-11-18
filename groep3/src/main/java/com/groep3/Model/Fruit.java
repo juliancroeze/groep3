@@ -1,25 +1,28 @@
 package com.groep3.Model;
 
 public class Fruit {
-    public String name;
-    public String description;
-    public String imagePath;
+    private String name;
+    private String description;
+    private String imagePath;
+    private double price;
 
-    //Voor fruit met image
-    public Fruit(String name, String description, String imagePath) {
+    // Constructor met afbeelding
+    public Fruit(String name, String description, String imagePath, double price) {
         this.name = name;
         this.description = description;
         this.imagePath = imagePath;
+        this.price = price;
     }
 
-    //Voor fruit zonder image
-    public Fruit(String name, String description) {
+    // Constructor zonder afbeelding
+    public Fruit(String name, String description, double price) {
         this.name = name;
         this.description = description;
         this.imagePath = null;
+        this.price = price;
     }
 
-    //Getters and Setters
+    // Getters en setters (deze moeten wél public zijn!)
     public String getName() {
         return name;
     }
@@ -44,4 +47,11 @@ public class Fruit {
         this.imagePath = imagePath;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 }
