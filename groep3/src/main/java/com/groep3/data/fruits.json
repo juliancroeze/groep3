@@ -1,0 +1,27 @@
+{
+    "fruits":
+        {
+            "apple": {
+                "name": "Apple",
+                "color": "Red",
+                "weight": 150,
+                "price_per_kg": 3.0,
+                "image": "images/apple.png"
+            },
+            "banana": {
+                "name": "Banana",
+                "color": "Yellow",
+                "weight": 120,
+                "price_per_kg": 2.5,
+                "image": ""
+            },
+            "orange": {
+                "name": "Orange",
+                "color": "Orange",
+                "weight": 130,
+                "price_per_kg": 2.8,
+                "image": ""
+            }
+        
+        }
+}
