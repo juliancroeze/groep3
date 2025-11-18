@@ -1,27 +1,22 @@
-{
-    "fruits":
-        {
-            "apple": {
-                "name": "Apple",
-                "color": "Red",
-                "weight": 150,
-                "price_per_kg": 3.0,
-                "image": "images/apple.png"
-            },
-            "banana": {
-                "name": "Banana",
-                "color": "Yellow",
-                "weight": 120,
-                "price_per_kg": 2.5,
-                "image": ""
-            },
-            "orange": {
-                "name": "Orange",
-                "color": "Orange",
-                "weight": 130,
-                "price_per_kg": 2.8,
-                "image": ""
-            }
-        
-        }
-}
+[
+    {
+        "name": "apple",
+        "description": "A sweet red fruit",
+        "price": 3.0,
+        "imagePath": "images/apple.png"
+    }
+    ,
+    {
+        "name": "banana",
+        "description": "Lange gele banaan",
+        "price": 2.5,
+        "imagePath": ""
+    }
+    ,
+    {
+        "name": "orange",
+        "description": "Juicy orange fruit",
+        "price": 2.8,
+        "imagePath": ""
+    }
+]
