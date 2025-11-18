@@ -21,6 +21,9 @@ public class MainScreenController {
     @FXML
     private GridPane fruitItems;
 
+    @FXML
+    private ListView<String> winkelmandList;
+
     private FruitController fruitController;
     private ShoppingCartController shoppingCartController;
     public void setFruitController(FruitController fruitController, ShoppingCartController shoppingCartController) {
@@ -102,21 +105,15 @@ public class MainScreenController {
             }
         );
 
-
-
         infoContainer.getChildren().addAll( name, description, price);
 
         fruitContainer.getChildren().addAll(imgBox, infoContainer, addButton );
         return fruitContainer;
     }
 
-
-    @FXML
-    private ListView<String> winkelmandList;
-
     private void updateShoppingCart() {
         List<String> itemNames = new ArrayList<>();
-        for (Fruit fruit : shoppingCartController.getItems()) {
+        for (Fruit fruit : shoppingCartController.cartItems.keySet()) {
             itemNames.add(fruit.getName());
         }
         winkelmandList.setItems(FXCollections.observableArrayList(itemNames));
