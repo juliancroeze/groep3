@@ -8,6 +8,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.collections.FXCollections;
 import javafx.scene.layout.VBox;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import com.groep3.Model.Fruit;
 
 //Deze class is om de content van het mainscreen te controleren
@@ -18,9 +22,10 @@ public class MainScreenController {
     private GridPane fruitItems;
 
     private FruitController fruitController;
-
-    public void setFruitController(FruitController fruitController) {
+    private ShoppingCartController shoppingCartController;
+    public void setFruitController(FruitController fruitController, ShoppingCartController shoppingCartController) {
         this.fruitController = fruitController;
+        this.shoppingCartController = shoppingCartController;
         loadFruits();
         initializeWinkelmand();
     }
@@ -82,12 +87,22 @@ public class MainScreenController {
         Label price = new Label("€ " + String.format("%.2f", fruit.getPrice()));
         price.setStyle("-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #27ae60;");
 
-      // Winkel wagen button
-      Button addButton = new Button("+");
-      addButton.setStyle(
-          "-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: yellow; " +
-          "-fx-pref-width: 44px; -fx-pref-height: 44px; " +
-          "-fx-background-radius: 22; -fx-background-color: green;");
+        // Winkel wagen button
+        Button addButton = new Button("+");
+        addButton.setStyle(
+            "-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: yellow; " +
+            "-fx-pref-width: 44px; -fx-pref-height: 44px; " +
+            "-fx-background-radius: 22; -fx-background-color: green;");
+
+        addButton.setOnAction(
+            e -> {
+                shoppingCartController.add(fruit);
+                updateShoppingCart();
+                System.out.println(fruit.getName() + " added to cart.");
+            }
+        );
+
+
 
         infoContainer.getChildren().addAll( name, description, price);
 
@@ -99,10 +114,15 @@ public class MainScreenController {
     @FXML
     private ListView<String> winkelmandList;
 
-
+    private void updateShoppingCart() {
+        List<String> itemNames = new ArrayList<>();
+        for (Fruit fruit : shoppingCartController.getItems()) {
+            itemNames.add(fruit.getName());
+        }
+        winkelmandList.setItems(FXCollections.observableArrayList(itemNames));
+    }
+    
     public void initializeWinkelmand() {
-        // Add items to the ListView
-        winkelmandList.setItems(FXCollections.observableArrayList(
-                "fruit 1", "fruit 2", "fruit 3", "fruit 4","fruit 5"));
+        winkelmandList.setItems(FXCollections.observableArrayList());
     }
 }

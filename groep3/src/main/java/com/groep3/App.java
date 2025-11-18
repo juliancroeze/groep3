@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import com.groep3.Controller.FruitController;
 import com.groep3.Controller.MainScreenController;
+import com.groep3.Controller.ShoppingCartController;
 
 /**
  * JavaFX App
@@ -24,7 +25,7 @@ public class App extends Application {
         Parent root = loader.load();
 
         MainScreenController controller = loader.getController();
-        controller.setFruitController(new FruitController());
+        controller.setFruitController(new FruitController(), new ShoppingCartController());
 
         scene = new Scene(root, 1280, 720);
         stage.setScene(scene);
