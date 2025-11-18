@@ -45,22 +45,16 @@
 
     <!-- Hoofdcontent -->
     <center>
-        <GridPane fx:id="itemsGrid" hgap="10" vgap="10">
+        <GridPane style="-fx-padding: 10;" fx:id="fruitItems" hgap="10" vgap="10">
             <columnConstraints>
-                <ColumnConstraints percentWidth="33"/>
-                <ColumnConstraints percentWidth="33"/>
-                <ColumnConstraints percentWidth="33"/>
+                <ColumnConstraints percentWidth="33.33"/>
+                <ColumnConstraints percentWidth="33.33"/>
+                <ColumnConstraints percentWidth="33.33"/>
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints percentHeight="50"/>
                 <RowConstraints percentHeight="50"/>
             </rowConstraints>
-            <!-- <children>
-                <Button text="Content 1" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                <Button text="Content 2" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-                <Button text="Content 3" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
-                <Button text="Content 4" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-            </children> -->
         </GridPane>
     </center>
 </BorderPane>
