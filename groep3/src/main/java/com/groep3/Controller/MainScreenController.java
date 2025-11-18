@@ -43,7 +43,7 @@ public class MainScreenController {
         VBox fruitContainer = new VBox(10);
         fruitContainer.setPrefSize(240, 360);
         fruitContainer.setStyle(
-                "-fx-background-color: red; " +
+                "-fx-background-color: yellow; " +
                 "-fx-border-color: #e0e0e0; " +
                 "-fx-border-radius: 15; " +
                 "-fx-background-radius: 15; " +
@@ -61,16 +61,16 @@ public class MainScreenController {
 
         // Geen foto
         Label noImg = new Label("No Image");
-        noImg.setStyle("-fx-text-fill: #888; -fx-font-size: 14px; -fx-background-color: green");
+        noImg.setStyle("-fx-text-fill: #888; -fx-font-size: 14px;");
         imgBox.getChildren().add(noImg);
 
         // Fruitnaam
         Label name = new Label(fruit.getName());
-        name.setStyle("-fx-font-size: 20px; -fx-font-weight: bold; -fx-background-color: yellow");
+        name.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
 
         // Beschrijving
         Label description = new Label(fruit.getDescription());
-        description.setStyle("-fx-text-fill: #666666; -fx-font-size: 14px;-fx-background-color: blue");
+        description.setStyle("-fx-text-fill: #666666; -fx-font-size: 14px;");
         description.setWrapText(true);
         description.setMaxWidth(200);
 
