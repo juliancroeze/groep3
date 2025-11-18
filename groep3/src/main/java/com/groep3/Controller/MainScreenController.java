@@ -21,6 +21,7 @@ public class MainScreenController {
     public void setFruitController(FruitController fruitController) {
         this.fruitController = fruitController;
         loadFruits();
+        initializeWinkelmand();
     }
 
     private void loadFruits() {
