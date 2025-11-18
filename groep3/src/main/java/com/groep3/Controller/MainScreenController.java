@@ -2,6 +2,7 @@ package com.groep3.Controller;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
@@ -81,9 +82,16 @@ public class MainScreenController {
         Label price = new Label("€ " + String.format("%.2f", fruit.getPrice()));
         price.setStyle("-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #27ae60;");
 
+      // Winkel wagen button
+      Button addButton = new Button("+");
+      addButton.setStyle(
+          "-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: yellow; " +
+          "-fx-pref-width: 44px; -fx-pref-height: 44px; " +
+          "-fx-background-radius: 22; -fx-background-color: green;");
+
         infoContainer.getChildren().addAll( name, description, price);
 
-        fruitContainer.getChildren().addAll(imgBox, infoContainer );
+        fruitContainer.getChildren().addAll(imgBox, infoContainer, addButton );
         return fruitContainer;
     }
 
