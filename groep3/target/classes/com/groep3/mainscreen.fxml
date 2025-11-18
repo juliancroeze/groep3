@@ -28,7 +28,7 @@
 
             <!-- Lijst + Afrekenknop onder elkaar -->
             <VBox spacing="10" style="-fx-background-color: #ccc; -fx-padding: 10;">
-                <ListView fx:id="cartList" prefHeight="200" prefWidth="150"/>
+                <ListView fx:id="cartList" prefHeight="600" prefWidth="150"/>
                 <HBox spacing="10" style="-fx-background-color: #333; -fx-padding: 10;">
                     <Label text="'Bedrag'" style="-fx-text-fill: white; -fx-font-size: 10px;"/>
                 </HBox>
