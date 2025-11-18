@@ -1,22 +1,24 @@
-[
-    {
-        "name": "apple",
-        "description": "A sweet red fruit",
-        "price": 3.0,
-        "imagePath": "images/apple.png"
-    }
-    ,
-    {
-        "name": "banana",
-        "description": "Lange gele banaan",
-        "price": 2.5,
-        "imagePath": ""
-    }
-    ,
-    {
-        "name": "orange",
-        "description": "Juicy orange fruit",
-        "price": 2.8,
-        "imagePath": ""
-    }
-]
+{
+    "fruits":
+        {
+            "apple": {
+                "name": "Apple",
+                "description": "A sweet red fruit",
+                "price": 3.0,
+                "imagePath": "images/apple.png"
+            },
+            "banana": {
+                "name": "Banana",
+                "description": "Lange gele banaan",
+                "price": 2.5,
+                "imagePath": ""
+            },
+            "orange": {
+                "name": "Orange",
+                "description": "Juicy orange fruit",
+                "price_per_kg": 2.8,
+                "imagePath": ""
+            }
+        
+        }
+}
