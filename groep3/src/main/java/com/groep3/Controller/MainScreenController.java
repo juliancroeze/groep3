@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.groep3.Model.Fruit;
 
@@ -113,8 +114,11 @@ public class MainScreenController {
 
     private void updateShoppingCart() {
         List<String> itemNames = new ArrayList<>();
-        for (Fruit fruit : shoppingCartController.cartItems.keySet()) {
-            itemNames.add(fruit.getName());
+        for (Map.Entry<Fruit, Integer> entry : shoppingCartController.getCartItems().entrySet()) {
+            Fruit fruit = entry.getKey();
+            int count = entry.getValue();
+            double totalPrice = fruit.getPrice() * count;
+            itemNames.add(fruit.getName() + " x" + count + " - €" + String.format("%.2f", totalPrice));
         }
         winkelmandList.setItems(FXCollections.observableArrayList(itemNames));
     }

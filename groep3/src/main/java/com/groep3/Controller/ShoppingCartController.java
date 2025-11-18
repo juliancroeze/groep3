@@ -6,10 +6,14 @@ import com.groep3.Model.Fruit;
 
 public class ShoppingCartController {
     // public List<Fruit> cartItems;
-    public HashMap<Fruit, Integer> cartItems;
+    private HashMap<Fruit, Integer> cartItems;
 
     public ShoppingCartController() {
         cartItems = new HashMap<Fruit, Integer>();
+    }
+
+    public HashMap<Fruit, Integer> getCartItems() {
+        return cartItems;
     }
 
     public void add(Fruit fruit) {
@@ -17,9 +21,15 @@ public class ShoppingCartController {
     }
 
     public void remove(Fruit fruit) {
-        cartItems.remove(fruit);
+        if (cartItems.containsKey(fruit)) {
+            int count = cartItems.get(fruit);
+            if (count > 1) {
+                cartItems.put(fruit, count - 1); // Count - 1
+            } else {
+                cartItems.remove(fruit); // Verwijderen wanner count 1 is.
+            }
+        }
     }
-
     public HashMap<Fruit, Integer> getItems() {
         return cartItems;
     }
