@@ -3,7 +3,9 @@ package com.groep3.Controller;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
+import javafx.collections.FXCollections;
 import javafx.scene.layout.VBox;
 import com.groep3.Model.Fruit;
 
@@ -82,5 +84,16 @@ public class MainScreenController {
 
         fruitContainer.getChildren().addAll(imgBox, infoContainer );
         return fruitContainer;
+    }
+
+
+    @FXML
+    private ListView<String> winkelmandList;
+
+
+    public void initializeWinkelmand() {
+        // Add items to the ListView
+        winkelmandList.setItems(FXCollections.observableArrayList(
+                "fruit 1", "fruit 2", "fruit 3", "fruit 4"));
     }
 }
