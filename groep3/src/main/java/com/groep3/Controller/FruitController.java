@@ -9,10 +9,10 @@ public class FruitController {
 
     public FruitController() {
         fruits = List.of(
-            new Fruit("Apple", "A sweet red fruit", "/images/apple.png"),
-            new Fruit("Banana", "A long yellow fruit", "/images/banana.png"),
-            new Fruit("Orange", "A round citrus fruit", "/images/orange.png"),
-            new Fruit("Orange", "A round citrus fruit", "/images/orange.png")
+            new Fruit("Apple", "A sweet red fruit", "/images/apple.png", 0.79),
+            new Fruit("Banana", "Lange gele banaan", "/images/banana.png", 0.29),
+            new Fruit("Orange", "Heerlijke sinaasappel", "/images/orange.png", 0.99),
+            new Fruit("Kiwi", "Groene kiwi met pitjes", "/images/kiwi.png", 1.49)
         );
     }
 
