@@ -30,7 +30,7 @@
             <VBox spacing="10" style="-fx-background-color: #ccc; -fx-padding: 10;">
                 <ListView fx:id="winkelmandList" prefHeight="600" prefWidth="150"/>
                 <HBox spacing="10" style="-fx-background-color: #333; -fx-padding: 10;">
-                    <Label text="'Bedrag'" style="-fx-text-fill: white; -fx-font-size: 10px;"/>
+                    <Label fx:id="total" text="" style="-fx-text-fill: white; -fx-font-size: 10px;"/>
                 </HBox>
                 <Button text="Afrekenen" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
 

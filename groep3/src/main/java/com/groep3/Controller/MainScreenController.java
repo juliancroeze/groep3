@@ -25,6 +25,9 @@ public class MainScreenController {
     @FXML
     private ListView<String> winkelmandList;
 
+    @FXML
+    private Label total;
+
     private FruitController fruitController;
     private ShoppingCartController shoppingCartController;
     public void setFruitController(FruitController fruitController, ShoppingCartController shoppingCartController) {
@@ -103,6 +106,7 @@ public class MainScreenController {
                 shoppingCartController.add(fruit);
                 updateShoppingCart();
                 System.out.println(fruit.getName() + " added to cart.");
+                total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
             }
         );
 
@@ -124,6 +128,7 @@ public class MainScreenController {
     }
     
     public void initializeWinkelmand() {
+        total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
         winkelmandList.setItems(FXCollections.observableArrayList());
     }
 }

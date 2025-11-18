@@ -16,6 +16,15 @@ public class ShoppingCartController {
         return cartItems;
     }
 
+    public double getTotal() {
+        double sum = 0.0;
+        for (Fruit fruit : cartItems.keySet()) {
+            int quantity = cartItems.get(fruit);
+            sum += fruit.getPrice() * quantity;
+        }
+        return sum;
+    }
+
     public void add(Fruit fruit) {
         cartItems.put(fruit, cartItems.getOrDefault(fruit, 0) + 1);
     }
