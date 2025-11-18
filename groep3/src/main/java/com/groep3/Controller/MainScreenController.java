@@ -95,6 +95,6 @@ public class MainScreenController {
     public void initializeWinkelmand() {
         // Add items to the ListView
         winkelmandList.setItems(FXCollections.observableArrayList(
-                "fruit 1", "fruit 2", "fruit 3", "fruit 4"));
+                "fruit 1", "fruit 2", "fruit 3", "fruit 4","fruit 5"));
     }
 }
