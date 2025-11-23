@@ -19,26 +19,33 @@ public class App extends Application {
 
     private static Scene scene;
 
+    public static FruitController fruitController = new FruitController();
+    public static ShoppingCartController shoppingCartController = new ShoppingCartController();
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(App.class.getResource("mainscreen.fxml"));
         Parent root = loader.load();
 
         MainScreenController controller = loader.getController();
-        controller.setFruitController(new FruitController(), new ShoppingCartController());
+        controller.setFruitController(fruitController, shoppingCartController);
 
         scene = new Scene(root, 1280, 720);
         stage.setScene(scene);
         stage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
+    public static void setRoot(String fxml) throws IOException {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        Parent root = loader.load();
 
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
+        // Behoud de controller bij het wisselen van scherm
+        if (fxml.equals("mainscreen")) {
+            MainScreenController c = loader.getController();
+            c.setFruitController(fruitController, shoppingCartController);
+        }
+
+        scene.setRoot(root);    
     }
 
     public static void main(String[] args) {

@@ -12,7 +12,9 @@ import javafx.scene.layout.VBox;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.io.IOException;
 
+import com.groep3.App;
 import com.groep3.Model.Fruit;
 
 //Deze class is om de content van het mainscreen te controleren
@@ -27,6 +29,9 @@ public class MainScreenController {
 
     @FXML
     private Label total;
+
+    @FXML
+    private Button afrekenButton;
 
     private FruitController fruitController;
     private ShoppingCartController shoppingCartController;
@@ -127,7 +132,13 @@ public class MainScreenController {
         winkelmandList.setItems(FXCollections.observableArrayList(itemNames));
     }
     
+    @FXML
+    public void checkout() throws IOException {
+        App.setRoot("order");
+    }
+
     public void initializeWinkelmand() {
+
         total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
         winkelmandList.setItems(FXCollections.observableArrayList());
     }

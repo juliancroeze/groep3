@@ -32,7 +32,7 @@
                 <HBox spacing="10" style="-fx-background-color: #333; -fx-padding: 10;">
                     <Label fx:id="total" text="" style="-fx-text-fill: white; -fx-font-size: 10px;"/>
                 </HBox>
-                <Button text="Afrekenen" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                <Button onAction="#checkout" text="Afrekenen" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
 
             
             </VBox>
