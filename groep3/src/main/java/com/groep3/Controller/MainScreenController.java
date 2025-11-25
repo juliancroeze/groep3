@@ -5,6 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.collections.FXCollections;
 import javafx.scene.layout.VBox;
@@ -25,6 +26,9 @@ public class MainScreenController {
     private GridPane fruitItems;
 
     @FXML
+    private TextField searchBar;
+
+    @FXML
     private ListView<String> winkelmandList;
 
     @FXML
@@ -40,6 +44,30 @@ public class MainScreenController {
         this.shoppingCartController = shoppingCartController;
         loadFruits();
         initializeWinkelmand();
+        init();
+    }
+
+    private void init() {
+        searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+            fruitItems.getChildren().clear();
+
+            int column = 0;
+            int row = 0;
+            final int MAX_COLUMNS = 3;
+
+            for (Fruit fruit : fruitController.getFruits()) {
+                if (fruit.getName().toLowerCase().contains(newValue.toLowerCase())) {
+                    VBox card = fruitBox(fruit);
+                    fruitItems.add(card, column, row);
+
+                    column++;
+                    if (column == MAX_COLUMNS) {
+                        column = 0;
+                        row++;
+                    }
+                }
+            }
+        });
     }
 
     private void loadFruits() {
@@ -138,7 +166,6 @@ public class MainScreenController {
     }
 
     public void initializeWinkelmand() {
-
         total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
         winkelmandList.setItems(FXCollections.observableArrayList());
     }

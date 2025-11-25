@@ -14,7 +14,7 @@
             <HBox spacing="10" styleClass="header-title-box">
                 <Label text="OrderIT!" styleClass="header-label"/>
             </HBox>
-            <TextField/>
+            <TextField fx:id="searchBar" />
         </HBox>
     </top>
 
