@@ -1,0 +1,58 @@
+/* ----- HEADER ----- */
+.header {
+    -fx-background-color: #333;
+    -fx-padding: 10;
+}
+
+.header-title-box {
+    -fx-background-color: #49bd13ff;
+    -fx-padding: 10;
+}
+
+.header-label {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+
+/* ----- SIDEBAR ----- */
+.sidebar {
+    -fx-background-color: #eee;
+    -fx-padding: 10;
+}
+
+.sidebar-title {
+    -fx-background-color: #333;
+    -fx-padding: 10;
+}
+
+.sidebar-title-label {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+
+.sidebar-content {
+    -fx-background-color: #ccc;
+    -fx-padding: 10;
+}
+
+/* Total price box */
+.total-box {
+    -fx-background-color: #333;
+    -fx-padding: 10;
+}
+
+.total-label {
+    -fx-text-fill: white;
+    -fx-font-size: 10px;
+}
+
+/* Checkout button */
+.checkout-btn {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+}
+
+/* ----- CONTENT GRID ----- */
+.grid-pane {
+    -fx-padding: 10;
+}
