@@ -1,0 +1,46 @@
+/* ----- HEADER (same as main screen) ----- */
+.header {
+    -fx-background-color: #333;
+    -fx-padding: 10;
+}
+
+.header-title-box {
+    -fx-background-color: #49bd13ff;
+    -fx-padding: 10;
+}
+
+.header-label {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+
+/* ----- ORDER SCREEN CENTER ----- */
+.order-center {
+    -fx-padding: 10;
+}
+
+.order-title {
+    -fx-font-size: 24px;
+}
+
+/* ----- BUTTONS ----- */
+.order-button-green {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-padding: 10 20 10 20;
+}
+
+.order-button-blue {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-padding: 10 20 10 20;
+}
+
+.order-button-red {
+    -fx-background-color: #f44336;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-padding: 10 20 10 20;
+}
