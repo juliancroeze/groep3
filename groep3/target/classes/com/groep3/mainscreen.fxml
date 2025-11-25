@@ -45,18 +45,10 @@
 
     <!-- Hoofdcontent -->
     <center>
-        <ScrollPane fx:id="scrollPane" fitToWidth="true" fitToHeight="false">
+        <ScrollPane fx:id="scrollPane" fitToWidth="false" fitToHeight="false">
         <content>
             <GridPane style="-fx-padding: 10;" fx:id="fruitItems" hgap="10" vgap="10">
-                <columnConstraints>
-                    <ColumnConstraints percentWidth="33.33"/>
-                    <ColumnConstraints percentWidth="33.33"/>
-                    <ColumnConstraints percentWidth="33.33"/>
-                </columnConstraints>
-                <rowConstraints>
-                    <RowConstraints percentHeight="50"/>
-                    <RowConstraints percentHeight="50"/>
-                </rowConstraints>
+
             </GridPane>
         </content>
         </ScrollPane>

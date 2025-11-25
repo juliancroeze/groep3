@@ -53,10 +53,6 @@
                     <ColumnConstraints percentWidth="33.33"/>
                     <ColumnConstraints percentWidth="33.33"/>
                 </columnConstraints>
-                <rowConstraints>
-                    <RowConstraints percentHeight="50"/>
-                    <RowConstraints percentHeight="50"/>
-                </rowConstraints>
             </GridPane>
         </content>
         </ScrollPane>
