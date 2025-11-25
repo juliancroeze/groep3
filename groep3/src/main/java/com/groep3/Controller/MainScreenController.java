@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.collections.FXCollections;
 import javafx.scene.layout.VBox;
@@ -92,7 +94,7 @@ public class MainScreenController {
         VBox fruitContainer = new VBox(10);
         fruitContainer.setPrefSize(240, 360);
         fruitContainer.setStyle(
-                "-fx-background-color: yellow; " +
+                "-fx-background-color: #eee; " +
                 "-fx-border-color: #e0e0e0; " +
                 "-fx-border-radius: 15; " +
                 "-fx-background-radius: 15; " +
@@ -102,16 +104,41 @@ public class MainScreenController {
 
         VBox infoContainer = new VBox(4);
         infoContainer.setAlignment(Pos.CENTER_LEFT);
-        // Wel een foto
+            
         VBox imgBox = new VBox();
-        imgBox.setAlignment(Pos.CENTER);
-        imgBox.setPrefSize(140, 140);
-        imgBox.setStyle("-fx-background-color: #ddd; -fx-background-radius: 10;");
 
-        // Geen foto
-        Label noImg = new Label("No Image");
-        noImg.setStyle("-fx-text-fill: #888; -fx-font-size: 14px;");
-        imgBox.getChildren().add(noImg);
+
+        if(fruit.getImagePath() != null) {
+
+            // Wel een foto
+            imgBox.setAlignment(Pos.CENTER);
+            imgBox.setPrefSize(140, 140);
+            imgBox.setStyle("-fx-background-color: #ddd; -fx-background-radius: 10;");
+            System.out.println("Loading: " + fruit.getImagePath());
+            System.out.println("Found: " + App.class.getResourceAsStream(fruit.getImagePath()));
+            Image image = new Image(
+                    App.class.getResourceAsStream(fruit.getImagePath()), 
+                    120,       // requestedWidth
+                    120,       // requestedHeight
+                    true,      // preserveRatio
+                    true       // smooth
+            );
+            ImageView imageView = new ImageView(image);
+
+            imageView.fitWidthProperty().bind(imgBox.widthProperty());
+            imageView.fitHeightProperty().bind(imgBox.heightProperty());
+
+            // Stretch (no ratio)
+            imageView.setPreserveRatio(false);
+
+            imgBox.getChildren().add(imageView);
+
+        } else {
+            // Geen foto
+            Label noImg = new Label("No Image");
+            noImg.setStyle("-fx-text-fill: #888; -fx-font-size: 14px;");
+            imgBox.getChildren().add(noImg);
+        }
 
         // Fruitnaam
         Label name = new Label(fruit.getName());

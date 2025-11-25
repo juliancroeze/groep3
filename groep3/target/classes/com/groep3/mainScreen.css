@@ -1,16 +1,17 @@
 /* ----- HEADER ----- */
 .header {
-    -fx-background-color: #333;
+    -fx-border-color: black;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: #eee;
     -fx-padding: 10;
 }
 
 .header-title-box {
-    -fx-background-color: #49bd13ff;
     -fx-padding: 10;
 }
 
 .header-label {
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-font-size: 18px;
 }
 
