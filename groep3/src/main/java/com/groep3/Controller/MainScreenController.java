@@ -41,7 +41,7 @@ public class MainScreenController {
     private Button afrekenButton;
 
     @FXML 
-    private Button popupButton;
+    private Button popupButton;;
 
     private FruitController fruitController;
     private ShoppingCartController shoppingCartController;
@@ -173,18 +173,20 @@ public class MainScreenController {
                 total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
             }
         );
-
+        //fruit added popup
+        Button popupButton = new Button();
         Popup popup = new Popup();
+        Label popupLabel = new Label("Fruit added to cart!");
+            popupLabel.setStyle(
+                "-fx-background-color: #333; " +
+                "-fx-text-fill: white; " +
+                "-fx-padding: 10; " +
+                "-fx-border-radius: 5; " +
+                "-fx-background-radius: 5;"
+            );
+
         popupButton.setOnAction(
             e -> {
-            Label popupLabel = new Label("Fruit added to cart!");
-                popupLabel.setStyle(
-                    "-fx-background-color: #333; " +
-                    "-fx-text-fill: white; " +
-                    "-fx-padding: 10; " +
-                    "-fx-border-radius: 5; " +
-                    "-fx-background-radius: 5;"
-                );
             popup.getContent().clear();
             popup.getContent().add(popupLabel);
             popup.show(popupButton.getScene().getWindow());
