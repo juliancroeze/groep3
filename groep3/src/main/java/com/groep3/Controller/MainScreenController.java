@@ -114,8 +114,6 @@ public class MainScreenController {
             imgBox.setAlignment(Pos.CENTER);
             imgBox.setPrefSize(140, 140);
             imgBox.setStyle("-fx-background-color: #ddd; -fx-background-radius: 10;");
-            System.out.println("Loading: " + fruit.getImagePath());
-            System.out.println("Found: " + App.class.getResourceAsStream(fruit.getImagePath()));
             Image image = new Image(
                     App.class.getResourceAsStream(fruit.getImagePath()), 
                     120,       // requestedWidth
@@ -128,7 +126,6 @@ public class MainScreenController {
             imageView.fitWidthProperty().bind(imgBox.widthProperty());
             imageView.fitHeightProperty().bind(imgBox.heightProperty());
 
-            // Stretch (no ratio)
             imageView.setPreserveRatio(false);
 
             imgBox.getChildren().add(imageView);
@@ -165,7 +162,6 @@ public class MainScreenController {
             e -> {
                 shoppingCartController.add(fruit);
                 updateShoppingCart();
-                System.out.println(fruit.getName() + " added to cart.");
                 total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
             }
         );
