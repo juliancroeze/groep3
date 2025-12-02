@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.collections.FXCollections;
 import javafx.scene.layout.VBox;
+import javafx.stage.Popup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,9 @@ public class MainScreenController {
 
     @FXML
     private Button afrekenButton;
+
+    @FXML 
+    private Button popupButton;
 
     private FruitController fruitController;
     private ShoppingCartController shoppingCartController;
@@ -71,7 +75,7 @@ public class MainScreenController {
             }
         });
     }
-
+    //load fruits from fruitcontroller
     private void loadFruits() {
 
         int column = 0;
@@ -89,7 +93,7 @@ public class MainScreenController {
             }
         }
     }
-
+    //fruitbox layout
     private VBox fruitBox(Fruit fruit) {
         VBox fruitContainer = new VBox(10);
         fruitContainer.setPrefSize(240, 360);
@@ -170,10 +174,29 @@ public class MainScreenController {
             }
         );
 
+        Popup popup = new Popup();
+        popupButton.setOnAction(
+            e -> {
+            Label popupLabel = new Label("Fruit added to cart!");
+                popupLabel.setStyle(
+                    "-fx-background-color: #333; " +
+                    "-fx-text-fill: white; " +
+                    "-fx-padding: 10; " +
+                    "-fx-border-radius: 5; " +
+                    "-fx-background-radius: 5;"
+                );
+            popup.getContent().clear();
+            popup.getContent().add(popupLabel);
+            popup.show(popupButton.getScene().getWindow());
+            }
+        );
         infoContainer.getChildren().addAll( name, description, price);
 
         fruitContainer.getChildren().addAll(imgBox, infoContainer, addButton );
         return fruitContainer;
+
+
+
     }
 
     private void updateShoppingCart() {
