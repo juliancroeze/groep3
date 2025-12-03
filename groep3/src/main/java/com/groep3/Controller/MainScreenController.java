@@ -6,13 +6,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.collections.FXCollections;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
-
+import javafx.scene.layout.StackPane;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -40,8 +41,7 @@ public class MainScreenController {
     @FXML
     private Button afrekenButton;
 
-    @FXML 
-    private Button popupButton;;
+    private Button popupButton;
 
     private FruitController fruitController;
     private ShoppingCartController shoppingCartController;
@@ -111,7 +111,6 @@ public class MainScreenController {
             
         VBox imgBox = new VBox();
 
-
         if(fruit.getImagePath() != null) {
 
             // Wel een foto
@@ -129,13 +128,20 @@ public class MainScreenController {
             );
             ImageView imageView = new ImageView(image);
 
+            // Create a tooltip with fruit info
+            Tooltip tooltip = new Tooltip("Fruit: " + fruit.getName());
+            Tooltip.install(imageView, tooltip);
+            imageView.setPickOnBounds(true);
+ 
+
+            StackPane root = new StackPane(imageView);
             imageView.fitWidthProperty().bind(imgBox.widthProperty());
             imageView.fitHeightProperty().bind(imgBox.heightProperty());
 
             // Stretch (no ratio)
             imageView.setPreserveRatio(false);
 
-            imgBox.getChildren().add(imageView);
+            imgBox.getChildren().add(root);
 
         } else {
             // Geen foto
@@ -173,28 +179,10 @@ public class MainScreenController {
                 total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
             }
         );
-        //fruit added popup
-        Button popupButton = new Button();
-        Popup popup = new Popup();
-        Label popupLabel = new Label("Fruit added to cart!");
-            popupLabel.setStyle(
-                "-fx-background-color: #333; " +
-                "-fx-text-fill: white; " +
-                "-fx-padding: 10; " +
-                "-fx-border-radius: 5; " +
-                "-fx-background-radius: 5;"
-            );
 
-        popupButton.setOnAction(
-            e -> {
-            popup.getContent().clear();
-            popup.getContent().add(popupLabel);
-            popup.show(popupButton.getScene().getWindow());
-            }
-        );
         infoContainer.getChildren().addAll( name, description, price);
 
-        fruitContainer.getChildren().addAll(imgBox, infoContainer, addButton );
+        fruitContainer.getChildren().addAll(imgBox, infoContainer, addButton);
         return fruitContainer;
 
 
