@@ -15,6 +15,33 @@
     -fx-font-size: 18px;
 }
 
+.search-bar {
+    -fx-background-color: white;
+    -fx-background-radius: 25;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 25;
+    -fx-border-width: 1.5;
+    -fx-padding: 10 20 10 10;       
+    -fx-font-size: 15px;
+    -fx-pref-height: 50px;
+    -fx-pref-width: 400px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
+}
+
+.search-bar:focused {
+    -fx-border-color: #27ae60;       
+    -fx-border-width: 2;
+}
+
+.search-bar .text-field {
+    -fx-background-color: transparent;
+}
+
+.search-icon {
+    -fx-fill: #888888;
+}
+
+
 /* ----- SIDEBAR ----- */
 .sidebar {
     -fx-background-color: #eee;
@@ -56,4 +83,47 @@
 /* ----- CONTENT GRID ----- */
 .grid-pane {
     -fx-padding: 10;
+}
+
+/* ----- FRUIT CARD STYLING (moved from MainScreenController) ----- */
+
+.fruit-card {
+    -fx-background-color: #eee;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-padding: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0, 0, 5);
+}
+
+.fruit-image-box {
+    -fx-background-color: #ddd;
+    -fx-background-radius: 10;
+    -fx-alignment: center;
+}
+
+.fruit-name-label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.fruit-description-label {
+    -fx-text-fill: #666666;
+    -fx-font-size: 14px;
+}
+
+.fruit-price-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #27ae60;
+}
+
+.fruit-add-button {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: yellow;
+    -fx-pref-width: 44px;
+    -fx-pref-height: 44px;
+    -fx-background-radius: 22;
+    -fx-background-color: green;
 }
