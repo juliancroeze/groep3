@@ -33,13 +33,23 @@ public class ShoppingCartController {
         if (cartItems.containsKey(fruit)) {
             int count = cartItems.get(fruit);
             if (count > 1) {
-                cartItems.put(fruit, count - 1); // Count - 1
+                cartItems.put(fruit, count - 1); 
             } else {
-                cartItems.remove(fruit); // Verwijderen wanner count 1 is.
+                cartItems.remove(fruit); 
             }
         }
     }
     public HashMap<Fruit, Integer> getItems() {
         return cartItems;
     }
+
+    public void setAmount(Fruit fruit, int amount) {
+        if (amount <= 0) {
+            cartItems.remove(fruit);
+        } else {
+            cartItems.put(fruit, amount);
+        }
+    }
+
+
 }

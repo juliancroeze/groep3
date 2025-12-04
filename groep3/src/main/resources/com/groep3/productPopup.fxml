@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.groep3.Controller.ProductPopupController"
+            prefWidth="450" prefHeight="650"
+            style="-fx-background-color: rgba(0,0,0,0.5);">
+
+    <!-- Popup -->
+    <VBox fx:id="popupContainer"
+          alignment="TOP_CENTER"
+          spacing="20"
+          layoutX="25" layoutY="25"
+          prefWidth="400" prefHeight="600"
+          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 25;">
+
+        <ImageView fx:id="fruitImage"
+                   fitWidth="250"
+                   fitHeight="250"
+                   preserveRatio="true"
+                   style="-fx-background-radius: 10;"/>
+
+        <Label fx:id="fruitName"
+               style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+
+        <Label fx:id="fruitDescription"
+               wrapText="true"
+               maxWidth="350"
+               style="-fx-font-size: 16px; -fx-text-fill: #444;"/>
+
+        <Label fx:id="fruitPrice"
+               style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #27ae60;"/>
+
+        <!-- Aantal selector -->
+        <HBox alignment="CENTER" spacing="10">
+
+            <Button fx:id="minusBtn" text="−"
+                    style="-fx-background-color: #ff6666; -fx-text-fill: white;
+                           -fx-font-size: 24px; -fx-pref-width: 50px; -fx-pref-height: 50px;
+                           -fx-background-radius: 10;"/>
+
+            <TextField fx:id="aantalInput"
+                       prefWidth="80"
+                       maxWidth="80"
+                       alignment="CENTER"
+                       style="-fx-font-size: 24px; -fx-background-radius: 10;"/>
+
+            <Button fx:id="plusBtn" text="+"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white;
+                           -fx-font-size: 24px; -fx-pref-width: 50px; -fx-pref-height: 50px;
+                           -fx-background-radius: 10;"/>
+
+        </HBox>
+
+        <Button fx:id="addToCartBtn" text="In winkelmand"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white;
+                       -fx-font-size: 22px; -fx-font-weight: bold;
+                       -fx-padding: 15 40; -fx-background-radius: 10;"/>
+
+        <Button fx:id="closeBtn" text="Sluiten"
+                style="-fx-background-color: #ff5555; -fx-text-fill: white;
+                       -fx-font-weight: bold; -fx-font-size: 18px;
+                       -fx-padding: 10 25; -fx-background-radius: 10;"/>
+
+    </VBox>
+
+</AnchorPane>
