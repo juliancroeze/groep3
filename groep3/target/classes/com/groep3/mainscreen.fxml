@@ -15,7 +15,7 @@
                 <Label text="OrderIT!" styleClass="header-label"/>
             </HBox>
             <StackPane maxWidth="450">
-                <TextField fx:id="searchBar" promptText="Zoek fruit..." styleClass="search-bar" HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="searchBar" promptText="Zoek fruit...." styleClass="search-bar" HBox.hgrow="ALWAYS"/>
             </StackPane>      
         </HBox>
     </top>
