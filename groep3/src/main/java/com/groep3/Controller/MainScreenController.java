@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.collections.FXCollections;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -106,6 +107,9 @@ public class MainScreenController {
     VBox infoContainer = new VBox(4);
     infoContainer.setAlignment(Pos.CENTER_LEFT);
 
+    HBox buttonContainer = new HBox(6);
+
+
     Label name = new Label(fruit.getName());
     name.getStyleClass().add("fruit-name-label");
 
@@ -117,6 +121,16 @@ public class MainScreenController {
     Label price = new Label("€ " + String.format("%.2f", fruit.getPrice()));
     price.getStyleClass().add("fruit-price-label");
 
+    Button removeButton = new Button("-");
+    removeButton.getStyleClass().add("fruit-remove-button");
+    
+
+    removeButton.setOnAction(e -> {
+        shoppingCartController.remove(fruit);
+        updateShoppingCart();
+        total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
+    });
+
     Button addButton = new Button("+");
     addButton.getStyleClass().add("fruit-add-button");
 
@@ -127,7 +141,8 @@ public class MainScreenController {
     });
 
     infoContainer.getChildren().addAll(name, description, price);
-    fruitContainer.getChildren().addAll(imgBox, infoContainer, addButton);
+    buttonContainer.getChildren().addAll(removeButton, addButton);
+    fruitContainer.getChildren().addAll(imgBox, infoContainer, buttonContainer);
 
     return fruitContainer;
 }

@@ -127,3 +127,13 @@
     -fx-background-radius: 22;
     -fx-background-color: green;
 }
+
+.fruit-remove-button {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: yellow;
+    -fx-pref-width: 44px;
+    -fx-pref-height: 44px;
+    -fx-background-radius: 22;
+    -fx-background-color: red;
+}
