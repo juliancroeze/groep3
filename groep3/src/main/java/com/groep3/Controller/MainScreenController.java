@@ -91,86 +91,58 @@ public class MainScreenController {
     }
 
     private VBox fruitBox(Fruit fruit) {
-        VBox fruitContainer = new VBox(10);
-        fruitContainer.setPrefSize(240, 360);
-        fruitContainer.setStyle(
-                "-fx-background-color: #eee; " +
-                "-fx-border-color: #e0e0e0; " +
-                "-fx-border-radius: 15; " +
-                "-fx-background-radius: 15; " +
-                "-fx-padding: 10; " +
-                "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0, 0, 5);"
+    VBox fruitContainer = new VBox(10);
+    fruitContainer.setPrefSize(240, 360);
+    fruitContainer.getStyleClass().add("fruit-card");
+
+    VBox imgBox = new VBox();
+    imgBox.getStyleClass().add("fruit-image-box");
+    imgBox.setPrefSize(140, 140);
+
+    if (fruit.getImagePath() != null) {
+        Image image = new Image(
+                App.class.getResourceAsStream(fruit.getImagePath()),
+                120, 120, true, true
         );
-
-        VBox infoContainer = new VBox(4);
-        infoContainer.setAlignment(Pos.CENTER_LEFT);
-            
-        VBox imgBox = new VBox();
-
-
-        if(fruit.getImagePath() != null) {
-
-            // Wel een foto
-            imgBox.setAlignment(Pos.CENTER);
-            imgBox.setPrefSize(140, 140);
-            imgBox.setStyle("-fx-background-color: #ddd; -fx-background-radius: 10;");
-            Image image = new Image(
-                    App.class.getResourceAsStream(fruit.getImagePath()), 
-                    120,       // requestedWidth
-                    120,       // requestedHeight
-                    true,      // preserveRatio
-                    true       // smooth
-            );
-            ImageView imageView = new ImageView(image);
-
-            imageView.fitWidthProperty().bind(imgBox.widthProperty());
-            imageView.fitHeightProperty().bind(imgBox.heightProperty());
-
-            imageView.setPreserveRatio(false);
-
-            imgBox.getChildren().add(imageView);
-
-        } else {
-            // Geen foto
-            Label noImg = new Label("No Image");
-            noImg.setStyle("-fx-text-fill: #888; -fx-font-size: 14px;");
-            imgBox.getChildren().add(noImg);
-        }
-
-        // Fruitnaam
-        Label name = new Label(fruit.getName());
-        name.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
-
-        // Beschrijving
-        Label description = new Label(fruit.getDescription());
-        description.setStyle("-fx-text-fill: #666666; -fx-font-size: 14px;");
-        description.setWrapText(true);
-        description.setMaxWidth(200);
-
-        // Prijs
-        Label price = new Label("€ " + String.format("%.2f", fruit.getPrice()));
-        price.setStyle("-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #27ae60;");
-
-        // Winkel wagen button
-        Button addButton = new Button("+");
-        addButton.setStyle(
-            "-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: yellow; " +
-            "-fx-pref-width: 44px; -fx-pref-height: 44px; " +
-            "-fx-background-radius: 22; -fx-background-color: green;");
-
-        addButton.setOnAction(
-            e -> {
-                shoppingCartController.add(fruit);
-                updateShoppingCart();
-                total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
-            }
-        );
-
-        infoContainer.getChildren().addAll( name, description, price);
-
-        fruitContainer.getChildren().addAll(imgBox, infoContainer, addButton );
-        return fruitContainer;
+        ImageView imageView = new ImageView(image);
+        imageView.setPreserveRatio(false);
+        imageView.fitWidthProperty().bind(imgBox.widthProperty());
+        imageView.fitHeightProperty().bind(imgBox.heightProperty());
+        imgBox.getChildren().add(imageView);
+    } else {
+        Label noImg = new Label("No Image");
+        noImg.setStyle("-fx-text-fill: #888; -fx-font-size: 14px;");
+        imgBox.getChildren().add(noImg);
     }
+
+    VBox infoContainer = new VBox(4);
+    infoContainer.setAlignment(Pos.CENTER_LEFT);
+
+    Label name = new Label(fruit.getName());
+    name.getStyleClass().add("fruit-name-label");
+
+    Label description = new Label(fruit.getDescription());
+    description.getStyleClass().add("fruit-description-label");
+    description.setWrapText(true);
+    description.setMaxWidth(200);
+
+    Label price = new Label("€ " + String.format("%.2f", fruit.getPrice()));
+    price.getStyleClass().add("fruit-price-label");
+
+    Button addButton = new Button("+");
+    addButton.getStyleClass().add("fruit-add-button");
+
+    addButton.setOnAction(e -> {
+        shoppingCartController.add(fruit);
+        updateShoppingCart();
+        total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
+    });
+
+    infoContainer.getChildren().addAll(name, description, price);
+    fruitContainer.getChildren().addAll(imgBox, infoContainer, addButton);
+
+    return fruitContainer;
+}
 
     private void updateShoppingCart() {
         List<String> itemNames = new ArrayList<>();
