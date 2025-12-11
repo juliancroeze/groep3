@@ -30,7 +30,7 @@ public class ProductPopupController {
         this.stage = stage;
     }
 
-    // check of fruit al bestaat zoja laad data
+    // check of fruit al bestaat zoja laad data in winkel mandje
     public void setShoppingCart(ShoppingCartController cart) {
         this.shoppingCart = cart;
         if (this.fruit != null) {
@@ -38,7 +38,7 @@ public class ProductPopupController {
         }
     }
 
-
+    // zet fruit in popup
     public void setFruit(Fruit fruit) {
         this.fruit = fruit;
         if (this.shoppingCart != null) {
@@ -46,10 +46,12 @@ public class ProductPopupController {
         }
     }
 
+    // Stelt het fruit in en laadt de gegevens als deze al beschikbaar zijn
     private void updateMinusButtonVisibility(int amount) {
         minusBtn.setVisible(amount > 0);
     }
 
+    // zorgt dat er geen error komt bij niet geen getal
     private int safeParse(String text) {
         try {
             return Integer.parseInt(text.trim());
@@ -58,6 +60,7 @@ public class ProductPopupController {
         }
     }
 
+    // Laadt de gegevens van het geselecteerde fruit in de popup en toont de huidige hoeveelheid uit het winkelmandje
     private void loadFruitData() {
         fruitName.setText(fruit.getName());
         fruitDescription.setText(fruit.getDescription());
@@ -79,6 +82,7 @@ public class ProductPopupController {
     @FXML
     private void initialize() {
 
+        // Plus-knop: verhoogt de hoeveelheid met 1
         plusBtn.setOnAction(e -> {
             int cur = safeParse(aantalInput.getText());
             cur++;
@@ -86,6 +90,7 @@ public class ProductPopupController {
             updateMinusButtonVisibility(cur);
         });
 
+        // Minus-knop: verlaagt de hoeveelheid met 1 (maar niet onder 0)
         minusBtn.setOnAction(e -> {
             int cur = safeParse(aantalInput.getText());
             if (cur > 0) cur--;
@@ -93,15 +98,15 @@ public class ProductPopupController {
             updateMinusButtonVisibility(cur);
         });
 
+        // Add-to-cart knop: slaat de gekozen hoeveelheid op in het winkelmandje en sluit de popup
         addToCartBtn.setOnAction(e -> {
             int amount = safeParse(aantalInput.getText());
 
-            // 🔥 update mandje
             shoppingCart.setAmount(fruit, amount);
-
             stage.close();
         });
 
+        // Sluit de popup zonder iets te wijzigen
         closeBtn.setOnAction(e -> stage.close());
     }
 }
