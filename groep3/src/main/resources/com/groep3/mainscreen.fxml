@@ -43,17 +43,21 @@
 
     <!-- Main content -->
     <center>
-        <ScrollPane fx:id="scrollPane" fitToWidth="true" fitToHeight="false">
-            <content>
-                <GridPane fx:id="fruitItems" styleClass="grid-pane" hgap="10" vgap="10">
-                    <columnConstraints>
-                        <ColumnConstraints percentWidth="33.33"/>
-                        <ColumnConstraints percentWidth="33.33"/>
-                        <ColumnConstraints percentWidth="33.33"/>
-                    </columnConstraints>
-                </GridPane>
-            </content>
-        </ScrollPane>
+        <center>
+            <ScrollPane
+                styleClass="grid-container"
+                fx:id="scrollPane"
+                fitToWidth="true"
+                fitToHeight="false"
+                vbarPolicy="NEVER"
+                hbarPolicy="NEVER">
+
+                <GridPane fx:id="fruitItems"
+                    styleClass="grid-pane"
+                    hgap="10"
+                    vgap="10" />
+            </ScrollPane>
+    </center>
     </center>
 
 </BorderPane>

@@ -58,7 +58,7 @@ public class MainScreenController {
                     fruitItems.add(card, column, row);
 
                     column++;
-                    if (column == 3) { column = 0; row++; }
+                    if (column == 4) { column = 0; row++; }
                 }
             }
         });
@@ -73,28 +73,30 @@ public class MainScreenController {
             fruitItems.add(card, column, row);
 
             column++;
-            if (column == 3) { column = 0; row++; }
+            if (column == 4) { column = 0; row++; }
         }
     }
 
     private VBox fruitBox(Fruit fruit) {
+    double fruitContainerHeiht = 191.65;
+    double fruitContainerWidth = 221.80;
+
     VBox fruitContainer = new VBox(10);
-    fruitContainer.setPrefSize(240, 360);
+    fruitContainer.setPrefSize(fruitContainerWidth, fruitContainerHeiht);
     fruitContainer.getStyleClass().add("fruit-card");
     
     fruitContainer.setOnMouseClicked(e -> openPopup(fruit));
 
     VBox imgBox = new VBox();
     imgBox.getStyleClass().add("fruit-image-box");
-    imgBox.setPrefSize(140, 140);
+    imgBox.setPrefSize(fruitContainerWidth, 89);
 
     if (fruit.getImagePath() != null) {
         Image image = new Image(
                 App.class.getResourceAsStream(fruit.getImagePath()),
-                120, 120, true, true
+                fruitContainerWidth, 89, true, true
         );
         ImageView imageView = new ImageView(image);
-        imageView.setPreserveRatio(false);
         imageView.fitWidthProperty().bind(imgBox.widthProperty());
         imageView.fitHeightProperty().bind(imgBox.heightProperty());
         imgBox.getChildren().add(imageView);
@@ -106,6 +108,7 @@ public class MainScreenController {
 
     VBox infoContainer = new VBox(4);
     infoContainer.setAlignment(Pos.CENTER_LEFT);
+    infoContainer.setPrefSize(fruitContainerWidth, 102);
 
     HBox buttonContainer = new HBox(6);
 
@@ -116,7 +119,6 @@ public class MainScreenController {
     Label description = new Label(fruit.getDescription());
     description.getStyleClass().add("fruit-description-label");
     description.setWrapText(true);
-    description.setMaxWidth(200);
 
     Label price = new Label("€ " + String.format("%.2f", fruit.getPrice()));
     price.getStyleClass().add("fruit-price-label");

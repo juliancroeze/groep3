@@ -70,5 +70,35 @@
         "description": "A sweet orange fruit",
         "imagePath": "data/images/orange.png",
         "price": 0.79
+    },
+    {
+        "name": "Banana",
+        "description": "Lange gele banaan",
+        "imagePath": "data/images/banana.png",
+        "price": 0.29
+    },
+    {
+        "name": "Banana",
+        "description": "Lange gele banaan",
+        "imagePath": "data/images/banana.png",
+        "price": 0.29
+    },
+    {
+        "name": "orange",
+        "description": "A sweet orange fruit",
+        "imagePath": "data/images/orange.png",
+        "price": 0.79
+    },
+    {
+        "name": "Banana",
+        "description": "Lange gele banaan",
+        "imagePath": "data/images/banana.png",
+        "price": 0.29
+    },
+    {
+        "name": "Banana",
+        "description": "Lange gele banaan",
+        "imagePath": "data/images/banana.png",
+        "price": 0.29
     }
 ]
