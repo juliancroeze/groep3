@@ -4,46 +4,25 @@
 <?import javafx.scene.control.*?>
 
 <BorderPane fx:controller="com.groep3.Controller.MainScreenController"
-            xmlns:fx="http://javafx.com/fxml"
-            prefWidth="1280" prefHeight="720"
-            stylesheets="@mainScreen.css">
+    xmlns:fx="http://javafx.com/fxml"
+    prefWidth="1280" prefHeight="720"
+    stylesheets="@css/mainScreen.css">
 
     <!-- Header -->
     <top>
-        <HBox spacing="10" styleClass="header">
+        <HBox prefHeight='82.49' spacing="10" styleClass="header">
             <HBox spacing="10" styleClass="header-title-box">
-                <Label text="OrderIT!" styleClass="header-label"/>
+                <Label text="OrderIT!" styleClass="header-label" />
             </HBox>
             <StackPane maxWidth="450">
-                <TextField fx:id="searchBar" promptText="Zoek fruit...." styleClass="search-bar" HBox.hgrow="ALWAYS"/>
-            </StackPane>      
+                <TextField fx:id="searchBar" promptText="Zoek fruit...." styleClass="search-bar"
+                    HBox.hgrow="ALWAYS" />
+            </StackPane>
         </HBox>
     </top>
 
-    <!-- Sidebar -->
-    <right>
-        <VBox spacing="10" styleClass="sidebar">
-
-            <HBox spacing="10" styleClass="sidebar-title">
-                <Label text="Winkelmandje" styleClass="sidebar-title-label"/>
-            </HBox>
-
-            <VBox spacing="10" styleClass="sidebar-content">
-                <ListView fx:id="winkelmandList" prefHeight="600" prefWidth="150"/>
-                
-                <HBox spacing="10" styleClass="total-box">
-                    <Label fx:id="total" text="" styleClass="total-label"/>
-                </HBox>
-
-                <Button onAction="#checkout" text="Afrekenen" styleClass="checkout-btn"/>
-            </VBox>
-
-        </VBox>
-    </right>
-
-    <!-- Main content -->
     <center>
-        <center>
+        <HBox spacing="10" style=' -fx-padding: 10;'> 
             <ScrollPane
                 styleClass="grid-container"
                 fx:id="scrollPane"
@@ -51,13 +30,28 @@
                 fitToHeight="false"
                 vbarPolicy="NEVER"
                 hbarPolicy="NEVER">
-
                 <GridPane fx:id="fruitItems"
                     styleClass="grid-pane"
                     hgap="10"
                     vgap="10" />
             </ScrollPane>
-    </center>
-    </center>
 
+            <!-- Sidebar -->
+            <VBox prefHeight="600" prefWidth="312.5" spacing="10" styleClass="sidebar">
+                <HBox spacing="10" styleClass="sidebar-title">
+                    <Label text="Winkelmandje" styleClass="sidebar-title-label" />
+                </HBox>
+
+                <VBox spacing="10" styleClass="sidebar-content">
+                    <ListView fx:id="winkelmandList" />
+
+                    <HBox spacing="10" styleClass="total-box">
+                        <Label fx:id="total" text="" styleClass="total-label" />
+                    </HBox>
+
+                    <Button onAction="#checkout" text="Afrekenen" styleClass="checkout-btn" />
+                </VBox>
+            </VBox>
+        </HBox>
+    </center>
 </BorderPane>

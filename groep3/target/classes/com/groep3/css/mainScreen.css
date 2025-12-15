@@ -1,3 +1,4 @@
+
 /* ----- HEADER ----- */
 .header {
     -fx-border-color: black;
@@ -46,6 +47,7 @@
 .sidebar {
     -fx-background-color: #eee;
     -fx-padding: 10;
+    -fx-border-radius: 20;
 }
 
 .sidebar-title {
@@ -81,59 +83,55 @@
 }
 
 /* ----- CONTENT GRID ----- */
-.grid-pane {
+.grid-container {
     -fx-padding: 10;
+    -fx-border-color: 'red';
+    -fx-border-radius: 20;
+
 }
 
-/* ----- FRUIT CARD STYLING (moved from MainScreenController) ----- */
+
+/* ----- FRUIT CARD STYLING ----- */
 
 .fruit-card {
-    -fx-background-color: #eee;
     -fx-border-color: #e0e0e0;
-    -fx-border-radius: 15;
-    -fx-background-radius: 15;
-    -fx-padding: 10;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0, 0, 5);
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
 }
 
-.fruit-image-box {
-    -fx-background-color: #ddd;
-    -fx-background-radius: 10;
-    -fx-alignment: center;
-}
 
 .fruit-name-label {
-    -fx-font-size: 20px;
+    -fx-font-size: 12px;
     -fx-font-weight: bold;
 }
 
 .fruit-description-label {
     -fx-text-fill: #666666;
-    -fx-font-size: 14px;
+    -fx-font-size: 10px;
 }
 
 .fruit-price-label {
-    -fx-font-size: 24px;
+    -fx-font-size: 12px;
     -fx-font-weight: bold;
     -fx-text-fill: #27ae60;
 }
 
 .fruit-add-button {
-    -fx-font-size: 18px;
+    -fx-font-size: 12px;
     -fx-font-weight: bold;
     -fx-text-fill: yellow;
-    -fx-pref-width: 44px;
-    -fx-pref-height: 44px;
+    -fx-pref-width: 32px;
+    -fx-pref-height: 32px;
     -fx-background-radius: 22;
     -fx-background-color: green;
 }
 
 .fruit-remove-button {
-    -fx-font-size: 18px;
+    -fx-font-size: 12px;
     -fx-font-weight: bold;
     -fx-text-fill: yellow;
-    -fx-pref-width: 44px;
-    -fx-pref-height: 44px;
+    -fx-pref-width: 32px;
+    -fx-pref-height: 32px;
     -fx-background-radius: 22;
     -fx-background-color: red;
 }

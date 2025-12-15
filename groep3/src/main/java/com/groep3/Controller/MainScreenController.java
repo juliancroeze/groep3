@@ -12,6 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.collections.FXCollections;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
@@ -81,21 +82,27 @@ public class MainScreenController {
     double fruitContainerHeiht = 191.65;
     double fruitContainerWidth = 221.80;
 
-    VBox fruitContainer = new VBox(10);
+    VBox fruitContainer = new VBox(5);
     fruitContainer.setPrefSize(fruitContainerWidth, fruitContainerHeiht);
     fruitContainer.getStyleClass().add("fruit-card");
     
     fruitContainer.setOnMouseClicked(e -> openPopup(fruit));
 
     VBox imgBox = new VBox();
-    imgBox.getStyleClass().add("fruit-image-box");
+
     imgBox.setPrefSize(fruitContainerWidth, 89);
+    Rectangle clip = new Rectangle(fruitContainerWidth, fruitContainerHeiht);
+    clip.setArcWidth(44);
+    clip.setArcHeight(44);
+    
+    imgBox.setClip(clip);
 
     if (fruit.getImagePath() != null) {
         Image image = new Image(
                 App.class.getResourceAsStream(fruit.getImagePath()),
                 fruitContainerWidth, 89, true, true
         );
+        imgBox.getStyleClass().add("fruit-image-box");
         ImageView imageView = new ImageView(image);
         imageView.fitWidthProperty().bind(imgBox.widthProperty());
         imageView.fitHeightProperty().bind(imgBox.heightProperty());
@@ -107,14 +114,14 @@ public class MainScreenController {
     }
 
     VBox infoContainer = new VBox(4);
-    infoContainer.setAlignment(Pos.CENTER_LEFT);
+    infoContainer.setAlignment(Pos.TOP_LEFT);
     infoContainer.setPrefSize(fruitContainerWidth, 102);
 
     HBox buttonContainer = new HBox(6);
 
 
     Label name = new Label(fruit.getName());
-    name.getStyleClass().add("fruit-name-label");
+    name.getStyleClass().add("label");
 
     Label description = new Label(fruit.getDescription());
     description.getStyleClass().add("fruit-description-label");

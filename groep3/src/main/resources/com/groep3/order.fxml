@@ -6,7 +6,7 @@
 <BorderPane fx:controller="com.groep3.Controller.OrderScreenController"
             xmlns:fx="http://javafx.com/fxml" 
             prefWidth="1280" prefHeight="720"
-            stylesheets="@order.css">
+            stylesheets="@css/order.css">
 
     <!-- Top bar -->
     <top>
