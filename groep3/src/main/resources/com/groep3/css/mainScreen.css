@@ -1,10 +1,10 @@
 
 /* ----- HEADER ----- */
 .header {
-    -fx-border-color: black;
     -fx-border-width: 0 0 1 0;
-    -fx-background-color: #eee;
     -fx-padding: 10;
+    -fx-border-color: #E8E8E8;
+    -fx-border-width: 2;
 }
 
 .header-title-box {
@@ -45,9 +45,11 @@
 
 /* ----- SIDEBAR ----- */
 .sidebar {
-    -fx-background-color: #eee;
     -fx-padding: 10;
     -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-border-width: 2;
+    -fx-border-color: #E8E8E8;
 }
 
 .sidebar-title {
@@ -85,8 +87,10 @@
 /* ----- CONTENT GRID ----- */
 .grid-container {
     -fx-padding: 10;
-    -fx-border-color: 'red';
+    -fx-border-color: #E8E8E8;
     -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-border-width: 2;
 
 }
 
