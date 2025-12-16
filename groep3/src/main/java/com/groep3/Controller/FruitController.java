@@ -11,13 +11,11 @@ public class FruitController {
     private List<Fruit> fruits;
 
     public FruitController() {
-
         fruits = new ArrayList<Fruit>();
         ObjectMapper objectMapper = new ObjectMapper();
-        try{
+        try {
             fruits = List.of(
-                objectMapper.readValue(App.class.getResourceAsStream("data/fruits.json"), Fruit[].class)
-            );
+                    objectMapper.readValue(App.class.getResourceAsStream("data/fruits.json"), Fruit[].class));
         } catch (Exception e) {
             e.printStackTrace();
         }

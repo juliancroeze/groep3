@@ -4,9 +4,13 @@ import com.groep3.App;
 import com.groep3.model.Fruit;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ProductPopupController {
@@ -108,5 +112,31 @@ public class ProductPopupController {
 
         // Sluit de popup zonder iets te wijzigen
         closeBtn.setOnAction(e -> stage.close());
+    }
+
+    public void openPopup(Fruit fruit, ShoppingCartController shoppingCartController, ListView<String> winkelmandList, Label total) {
+        try {
+            FXMLLoader loader = new FXMLLoader(App.class.getResource("productPopup.fxml"));
+            Parent root = loader.load();
+
+            Stage popupStage = new Stage();
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setScene(new Scene(root));
+            popupStage.setResizable(false);
+
+            ProductPopupController controller = loader.getController();
+            controller.setStage(popupStage);
+            controller.setFruit(fruit);
+            controller.setShoppingCart(shoppingCartController);
+
+            popupStage.showAndWait();
+
+            shoppingCartController.updateShoppingCart(winkelmandList);
+            total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

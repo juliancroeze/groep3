@@ -1,8 +1,15 @@
 package com.groep3.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.groep3.model.Fruit;
+
+import javafx.collections.FXCollections;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 
 public class ShoppingCartController {
     // public List<Fruit> cartItems;
@@ -10,6 +17,12 @@ public class ShoppingCartController {
 
     public ShoppingCartController() {
         cartItems = new HashMap<Fruit, Integer>();
+
+    }
+
+    public void initializeWinkelmand(Label total, ListView<String> winkelmandList) {
+        total.setText("Total: € " + String.format("%.2f", getTotal()));
+        winkelmandList.setItems(FXCollections.observableArrayList());
     }
 
     public HashMap<Fruit, Integer> getCartItems() {
@@ -51,5 +64,17 @@ public class ShoppingCartController {
         }
     }
 
+        public void updateShoppingCart(ListView<String> winkelmandList) {
+        List<String> itemNames = new ArrayList<>();
+        for (Map.Entry<Fruit, Integer> entry : getCartItems().entrySet()) {
+            Fruit fruit = entry.getKey();
+            int count = entry.getValue();
+            double totalPrice = fruit.getPrice() * count;
+
+            itemNames.add(fruit.getName() + " x" + count + " - €" + String.format("%.2f", totalPrice));
+        }
+
+        winkelmandList.setItems(FXCollections.observableArrayList(itemNames));
+    }
 
 }
