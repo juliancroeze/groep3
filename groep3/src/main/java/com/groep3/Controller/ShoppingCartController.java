@@ -12,7 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
 public class ShoppingCartController {
-    // public List<Fruit> cartItems;
     private HashMap<Fruit, Integer> cartItems;
 
     public ShoppingCartController() {
@@ -20,7 +19,7 @@ public class ShoppingCartController {
 
     }
 
-    public void initializeWinkelmand(Label total, ListView<String> winkelmandList) {
+    public void initShoppingCart(Label total, ListView<String> winkelmandList) {
         total.setText("Total: € " + String.format("%.2f", getTotal()));
         winkelmandList.setItems(FXCollections.observableArrayList());
     }
@@ -46,12 +45,13 @@ public class ShoppingCartController {
         if (cartItems.containsKey(fruit)) {
             int count = cartItems.get(fruit);
             if (count > 1) {
-                cartItems.put(fruit, count - 1); 
+                cartItems.put(fruit, count - 1);
             } else {
-                cartItems.remove(fruit); 
+                cartItems.remove(fruit);
             }
         }
     }
+
     public HashMap<Fruit, Integer> getItems() {
         return cartItems;
     }
@@ -64,7 +64,7 @@ public class ShoppingCartController {
         }
     }
 
-        public void updateShoppingCart(ListView<String> winkelmandList) {
+    public void updateShoppingCart(ListView<String> winkelmandList) {
         List<String> itemNames = new ArrayList<>();
         for (Map.Entry<Fruit, Integer> entry : getCartItems().entrySet()) {
             Fruit fruit = entry.getKey();

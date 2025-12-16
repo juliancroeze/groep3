@@ -38,7 +38,7 @@ public class MainScreenController {
         this.searchBarController = new SearchBarController(searchBar, fruitController, fruitCard, fruitItems);
 
         loadFruits();
-        shoppingCartController.initializeWinkelmand(total, winkelmandList);
+        shoppingCartController.initShoppingCart(total, winkelmandList);
         searchBarController.initSearchBar();
     }
 
