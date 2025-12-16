@@ -1,8 +1,8 @@
-package com.groep3.Controller;
+package com.groep3.controller;
 
 import java.util.HashMap;
 
-import com.groep3.Model.Fruit;
+import com.groep3.model.Fruit;
 
 public class ShoppingCartController {
     // public List<Fruit> cartItems;

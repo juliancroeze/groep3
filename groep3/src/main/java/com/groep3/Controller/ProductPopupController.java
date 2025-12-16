@@ -1,7 +1,7 @@
-package com.groep3.Controller;
+package com.groep3.controller;
 
-import com.groep3.Model.Fruit;
 import com.groep3.App;
+import com.groep3.model.Fruit;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

@@ -1,4 +1,4 @@
-package com.groep3.Controller;
+package com.groep3.controller;
 import com.groep3.App;
 
 import javafx.fxml.FXML;

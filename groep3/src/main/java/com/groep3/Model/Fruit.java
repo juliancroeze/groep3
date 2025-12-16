@@ -1,4 +1,4 @@
-package com.groep3.Model;
+package com.groep3.model;
 
 public class Fruit {
     private String name;

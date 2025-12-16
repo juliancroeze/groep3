@@ -9,10 +9,10 @@ module com.groep3 {
     exports com.groep3;
 
     // export model if you need it publicly
-    exports com.groep3.Model;
+    exports com.groep3.model;
 
     // controllers are instantiated/reflected by FXMLLoader: open to javafx.fxml
-    opens com.groep3.Controller to javafx.fxml;
+    opens com.groep3.controller to javafx.fxml;
 
     // open root package for reflection by javafx.graphics / javafx.fxml
     opens com.groep3 to javafx.graphics, javafx.fxml;

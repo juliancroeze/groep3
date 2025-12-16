@@ -1,4 +1,4 @@
-package com.groep3.Controller;
+package com.groep3.controller;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -25,7 +25,7 @@ import java.util.Map;
 import java.io.IOException;
 
 import com.groep3.App;
-import com.groep3.Model.Fruit;
+import com.groep3.model.Fruit;
 
 public class MainScreenController {
 
