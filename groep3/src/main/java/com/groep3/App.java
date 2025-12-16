@@ -8,9 +8,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import com.groep3.Controller.FruitController;
-import com.groep3.Controller.MainScreenController;
-import com.groep3.Controller.ShoppingCartController;
+import com.groep3.controller.FruitController;
+import com.groep3.controller.MainScreenController;
+import com.groep3.controller.ShoppingCartController;
 
 /**
  * JavaFX App

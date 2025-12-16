@@ -1,23 +1,21 @@
-package com.groep3.Controller;
+package com.groep3.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.groep3.App;
-import com.groep3.Model.Fruit;
+import com.groep3.model.Fruit;
 
 public class FruitController {
     private List<Fruit> fruits;
 
     public FruitController() {
-
         fruits = new ArrayList<Fruit>();
         ObjectMapper objectMapper = new ObjectMapper();
-        try{
+        try {
             fruits = List.of(
-                objectMapper.readValue(App.class.getResourceAsStream("data/fruits.json"), Fruit[].class)
-            );
+                    objectMapper.readValue(App.class.getResourceAsStream("data/fruits.json"), Fruit[].class));
         } catch (Exception e) {
             e.printStackTrace();
         }

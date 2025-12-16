@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 
-<BorderPane fx:controller="com.groep3.Controller.OrderScreenController"
+<BorderPane fx:controller="com.groep3.controller.OrderScreenController"
             xmlns:fx="http://javafx.com/fxml" 
             prefWidth="1280" prefHeight="720"
             stylesheets="@css/order.css">
