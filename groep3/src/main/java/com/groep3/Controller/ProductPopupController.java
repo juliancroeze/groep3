@@ -17,6 +17,7 @@ public class ProductPopupController {
 
     @FXML private ImageView fruitImage;
     @FXML private Label fruitName;
+    @FXML private Label fruitBoer;
     @FXML private Label fruitDescription;
     @FXML private Label fruitPrice;
 
@@ -68,6 +69,7 @@ public class ProductPopupController {
     private void loadFruitData() {
         fruitName.setText(fruit.getName());
         fruitDescription.setText(fruit.getDescription());
+        fruitBoer.setText(fruit.getProducer());
         fruitPrice.setText(String.format("€ %.2f", fruit.getPrice()));
 
         if (fruit.getImagePath() != null) {

@@ -6,6 +6,9 @@ public class Fruit {
     private String imagePath;
     private double price;
 
+
+    private String producer;
+
     public Fruit() {
         
     }
@@ -27,6 +30,10 @@ public class Fruit {
     }
 
     // Getters en setters
+
+    public String getProducer() { return producer; }
+    public void setProducer(String producer) { this.producer = producer; }
+
     public String getName() {
         return name;
     }
