@@ -1,7 +1,6 @@
 package com.groep3.views;
 
 import com.groep3.App;
-import com.groep3.controller.MainScreenController;
 import com.groep3.controller.ProductPopupController;
 import com.groep3.controller.ShoppingCartController;
 import com.groep3.model.Fruit;
