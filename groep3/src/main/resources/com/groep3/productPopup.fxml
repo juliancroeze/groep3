@@ -27,10 +27,18 @@
         <Label fx:id="fruitName"
                style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
 
+
+              <Label fx:id="fruitBoer"
+               wrapText="true"
+               maxWidth="350"
+               style="-fx-font-size: 16px; -fx-text-fill: #444;"/>
+
         <Label fx:id="fruitDescription"
                wrapText="true"
                maxWidth="350"
                style="-fx-font-size: 16px; -fx-text-fill: #444;"/>
+
+              
 
         <Label fx:id="fruitPrice"
                style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #27ae60;"/>

@@ -1,0 +1,382 @@
+{
+  "vruchten": [
+    {
+      "categorie": "Citrusvruchten",
+      "naam": "Sinaasappel",
+      "herkomst": "Spanje",
+      "beschikbaarheid_nl": 5000000,
+      "verhaal": "De sappige sinaasappels uit Valencia zijn perfect om je dag mee te beginnen. Ze worden handgeplukt en binnen 48 uur geleverd.",
+      "soort_fruit": "Citrus",
+      "producent": {
+        "boer": "Jan van Dijk",
+        "boerderij": "Fruitgaarde",
+        "provincie_of_streek": "Valencia",
+        "boer_bericht": "Ik hoop dat deze oogst je inspireert tot gezonde keuzes."
+      }
+    },
+    {
+      "categorie": "Tropisch fruit",
+      "naam": "Mango",
+      "herkomst": "India",
+      "beschikbaarheid_nl": 2000000,
+      "verhaal": "Deze Alphonso-mango's zijn bekend om hun unieke smaak en romige textuur. Ze komen van de oude plantages in Ratnagiri.",
+      "soort_fruit": "Tropisch fruit",
+      "producent": {
+        "boer": "Bram Jansen",
+        "boerderij": "Zonnekamp",
+        "provincie_of_streek": "Ratnagiri (Maharashtra)",
+        "boer_bericht": "Ik hoop dat deze oogst je inspireert tot gezonde keuzes."
+      }
+    },
+    {
+      "categorie": "Tropisch fruit",
+      "naam": "Banaan",
+      "herkomst": "Ecuador",
+      "beschikbaarheid_nl": 8000000,
+      "verhaal": "De bananen uit Ecuador worden gekweekt in tropische omstandigheden, waardoor ze hun zoete smaak krijgen.",
+      "soort_fruit": "Tropisch fruit",
+      "producent": {
+        "boer": "Pieter Meijer",
+        "boerderij": "Lindehof",
+        "provincie_of_streek": "Guayas",
+        "boer_bericht": "Elke vrucht vertelt een verhaal van geduld en passie."
+      }
+    },
+    {
+      "categorie": "Citrusvruchten",
+      "naam": "Citroen",
+      "herkomst": "Italië",
+      "beschikbaarheid_nl": 3000000,
+      "verhaal": "De citroenen uit Sicilië hebben een intense geur en zijn ideaal voor het maken van limoncello of om je gerechten een frisse touch te geven.",
+      "soort_fruit": "Citrus",
+      "producent": {
+        "boer": "Jan de Vries",
+        "boerderij": "Hofstede",
+        "provincie_of_streek": "Sicilië",
+        "boer_bericht": "Elke vrucht vertelt een verhaal van geduld en passie."
+      }
+    },
+    {
+      "categorie": "Bessen",
+      "naam": "Blauwe bes",
+      "herkomst": "Nederland",
+      "beschikbaarheid_nl": 1500000,
+      "verhaal": "Onze blauwe bessen komen uit de lokale teelt in Limburg, waar ze groeien in de rijke, zanderige grond. Deze besjes zitten boordevol antioxidanten.",
+      "soort_fruit": "Bes",
+      "producent": {
+        "boer": "Pieter Bakker",
+        "boerderij": "Boomgaardhoeve",
+        "provincie_of_streek": "Betuwe (Gelderland)",
+        "boer_bericht": "Mijn wens is dat je geniet van de smaak zoals ik van het telen geniet."
+      }
+    },
+    {
+      "categorie": "Bessen",
+      "naam": "Rode bes",
+      "herkomst": "Nederland (kassen)",
+      "beschikbaarheid_nl": 1200000,
+      "verhaal": "Rode bessen uit Nederlandse kassen zijn sappig en perfect voor desserts. Ze worden onder gecontroleerde omstandigheden geteeld om de optimale smaak te behouden.",
+      "soort_fruit": "Bes",
+      "producent": {
+        "boer": "Jan Koning",
+        "boerderij": "Fruitgaarde",
+        "provincie_of_streek": "Westland (Zuid-Holland)",
+        "boer_bericht": "Van mijn boomgaard naar jouw keuken, met trots en zorg."
+      }
+    },
+    {
+      "categorie": "Steenvruchten",
+      "naam": "Granaatappel",
+      "herkomst": "Iran",
+      "beschikbaarheid_nl": 500000,
+      "verhaal": "De granaatappel uit Iran wordt vaak beschouwd als een superfruit, met zijn sappige rode zaden vol antioxidanten.",
+      "soort_fruit": "Steenfruit",
+      "producent": {
+        "boer": "Henk Jansen",
+        "boerderij": "Zonnekamp",
+        "provincie_of_streek": "Kerman",
+        "boer_bericht": "Elke vrucht vertelt een verhaal van geduld en passie."
+      }
+    },
+    {
+      "categorie": "Steenvruchten",
+      "naam": "Perzik",
+      "herkomst": "Griekenland",
+      "beschikbaarheid_nl": 1000000,
+      "verhaal": "Deze perziken komen van de zonovergoten velden in Griekenland. Perfect voor een zomerse salade of als gezonde snack.",
+      "soort_fruit": "Steenfruit",
+      "producent": {
+        "boer": "Lars Smit",
+        "boerderij": "Fruitgaarde",
+        "provincie_of_streek": "Peloponnesos",
+        "boer_bericht": "Ik hoop dat deze oogst mensen samenbrengt aan tafel."
+      }
+    },
+    {
+      "categorie": "Citrusvruchten",
+      "naam": "Grapefruit",
+      "herkomst": "Florida, VS",
+      "beschikbaarheid_nl": 800000,
+      "verhaal": "De grapefruits uit Florida staan bekend om hun zoete smaak en subtiele bitterheid, ideaal voor een frisse start van de dag.",
+      "soort_fruit": "Citrus",
+      "producent": {
+        "boer": "Sanne de Vries",
+        "boerderij": "Hofstede",
+        "provincie_of_streek": "Florida",
+        "boer_bericht": "Ik hoop dat deze oogst mensen samenbrengt aan tafel."
+      }
+    },
+    {
+      "categorie": "Tropisch fruit",
+      "naam": "Kiwi",
+      "herkomst": "Nieuw-Zeeland",
+      "beschikbaarheid_nl": 1200000,
+      "verhaal": "De kiwi's uit Nieuw-Zeeland zijn beroemd om hun zoete smaak en hoge vitamine C-gehalte. Perfect voor een boost van je immuunsysteem.",
+      "soort_fruit": "Tropisch fruit",
+      "producent": {
+        "boer": "Bram Koning",
+        "boerderij": "Groene Akker",
+        "provincie_of_streek": "Hawke’s Bay",
+        "boer_bericht": "Ik droom dat mijn fruit een glimlach op je gezicht tovert."
+      }
+    },
+    {
+      "categorie": "Tropisch fruit",
+      "naam": "Ananas",
+      "herkomst": "Costa Rica",
+      "beschikbaarheid_nl": 2500000,
+      "verhaal": "De ananas uit Costa Rica is wereldwijd bekend om zijn zoetheid en sappigheid. Deze ananas is ideaal voor smoothies en desserts.",
+      "soort_fruit": "Tropisch fruit",
+      "producent": {
+        "boer": "Eva van den Berg",
+        "boerderij": "Valleirand",
+        "provincie_of_streek": "Puntarenas",
+        "boer_bericht": "Elke vrucht vertelt een verhaal van geduld en passie."
+      }
+    },
+    {
+      "categorie": "Pitfruit",
+      "naam": "Appel",
+      "herkomst": "Nederland",
+      "beschikbaarheid_nl": 10000000,
+      "verhaal": "Lokale appels uit de Betuwe, vers geplukt en heerlijk om zo te eten of te gebruiken voor appelmoes en appeltaart. De frisse smaak maakt ze favoriet in heel Nederland.",
+      "soort_fruit": "Pitfruit",
+      "producent": {
+        "boer": "Pieter Smit",
+        "boerderij": "Boomgaardhoeve",
+        "provincie_of_streek": "Betuwe (Gelderland)",
+        "boer_bericht": "Van mijn boomgaard naar jouw keuken, met trots en zorg."
+      }
+    },
+    {
+      "categorie": "Pitfruit",
+      "naam": "Peer",
+      "herkomst": "Nederland (kassen)",
+      "beschikbaarheid_nl": 7000000,
+      "verhaal": "Peren uit Nederlandse kassen zijn knapperig en zoet, perfect voor salades, nagerechten of gewoon als snack.",
+      "soort_fruit": "Pitfruit",
+      "producent": {
+        "boer": "Koen Meijer",
+        "boerderij": "Lindehof",
+        "provincie_of_streek": "Westland (Zuid-Holland)",
+        "boer_bericht": "Ik hoop dat deze oogst mensen samenbrengt aan tafel."
+      }
+    },
+    {
+      "categorie": "Steenvruchten",
+      "naam": "Kers",
+      "herkomst": "Nederland",
+      "beschikbaarheid_nl": 1500000,
+      "verhaal": "Zomerse kersen uit de Betuwe, vol van smaak en perfect als vers fruit of voor in taarten. Deze kersen zijn een lokaal favoriet en komen direct van de boer.",
+      "soort_fruit": "Steenfruit",
+      "producent": {
+        "boer": "Henk Meijer",
+        "boerderij": "Vogelweide",
+        "provincie_of_streek": "Betuwe (Gelderland)",
+        "boer_bericht": "Mijn wens: dat je deze vrucht deelt met iemand die je liefhebt."
+      }
+    },
+    {
+      "categorie": "Steenvruchten",
+      "naam": "Abrikoos",
+      "herkomst": "Turkije",
+      "beschikbaarheid_nl": 1200000,
+      "verhaal": "De Turkse abrikozen staan bekend om hun zachtheid en zoete smaak, ideaal voor jams en desserts. Ze worden rijp geplukt om hun smaak te optimaliseren.",
+      "soort_fruit": "Steenfruit",
+      "producent": {
+        "boer": "Koen Mulder",
+        "boerderij": "Groene Akker",
+        "provincie_of_streek": "Antalya",
+        "boer_bericht": "Mijn wens: dat je deze vrucht deelt met iemand die je liefhebt."
+      }
+    },
+    {
+      "categorie": "Citrusvruchten",
+      "naam": "Mandarijn",
+      "herkomst": "Marokko",
+      "beschikbaarheid_nl": 6000000,
+      "verhaal": "Mandarijnen uit Marokko zijn klein, sappig en vol van smaak. Ze worden geplukt in het winterseizoen en zijn ideaal als snack.",
+      "soort_fruit": "Citrus",
+      "producent": {
+        "boer": "Koen Koning",
+        "boerderij": "Lindehof",
+        "provincie_of_streek": "Souss-Massa",
+        "boer_bericht": "Mijn wens: dat je deze vrucht deelt met iemand die je liefhebt."
+      }
+    },
+    {
+      "categorie": "Tropisch fruit",
+      "naam": "Papaja",
+      "herkomst": "Mexico",
+      "beschikbaarheid_nl": 400000,
+      "verhaal": "Papaja's uit Mexico worden gerijpt in de zon en hebben een heerlijke zoete smaak. Perfect voor een frisse fruitsalade of smoothie.",
+      "soort_fruit": "Tropisch fruit",
+      "producent": {
+        "boer": "Jan de Vries",
+        "boerderij": "Fruitgaarde",
+        "provincie_of_streek": "Michoacán",
+        "boer_bericht": "Met respect voor de natuur geteeld, voor een betere toekomst."
+      }
+    },
+    {
+      "categorie": "Bessen",
+      "naam": "Framboos",
+      "herkomst": "Nederland (kassen)",
+      "beschikbaarheid_nl": 1800000,
+      "verhaal": "Deze frambozen worden in Nederlandse kassen geteeld voor een optimale zoete smaak. Ze zijn ideaal voor gebak of als gezonde snack.",
+      "soort_fruit": "Bes",
+      "producent": {
+        "boer": "Koen van Dijk",
+        "boerderij": "Hofstede",
+        "provincie_of_streek": "Westland (Zuid-Holland)",
+        "boer_bericht": "Elke vrucht vertelt een verhaal van geduld en passie."
+      }
+    },
+    {
+      "categorie": "Bessen",
+      "naam": "Aardbei",
+      "herkomst": "Nederland (kassen)",
+      "beschikbaarheid_nl": 5000000,
+      "verhaal": "Onze sappige aardbeien worden in Nederlandse kassen geteeld en zijn bekend om hun intense zoete smaak. Perfect voor desserts en smoothies.",
+      "soort_fruit": "Bes",
+      "producent": {
+        "boer": "Noor Meijer",
+        "boerderij": "Vogelweide",
+        "provincie_of_streek": "Westland (Zuid-Holland)",
+        "boer_bericht": "Met zorg geteeld, zodat elke hap puur natuur is."
+      }
+    },
+    {
+      "categorie": "Steenvruchten",
+      "naam": "Pruim",
+      "herkomst": "Nederland",
+      "beschikbaarheid_nl": 1000000,
+      "verhaal": "Deze pruimen worden lokaal in Nederland geteeld en zijn sappig en zoet, ideaal als tussendoortje of in gebak.",
+      "soort_fruit": "Steenfruit",
+      "producent": {
+        "boer": "Lars Smit",
+        "boerderij": "Vogelweide",
+        "provincie_of_streek": "Betuwe (Gelderland)",
+        "boer_bericht": "Van mijn boomgaard naar jouw keuken, met trots en zorg."
+      }
+    },
+    {
+      "categorie": "Pitfruit",
+      "naam": "Goudreinet (appel)",
+      "herkomst": "Nederland",
+      "beschikbaarheid_nl": 5000000,
+      "verhaal": "Traditionele appelsoort uit de Betuwe, ideaal voor appeltaart.",
+      "soort_fruit": "Pitfruit",
+      "producent": {
+        "boer": "Roos Bakker",
+        "boerderij": "Zonnekamp",
+        "provincie_of_streek": "Betuwe (Gelderland)",
+        "boer_bericht": "Deze vruchten zijn met liefde grootgebracht, proef het verschil!"
+      }
+    },
+    {
+      "categorie": "Pitfruit",
+      "naam": "Conference (peer)",
+      "herkomst": "Nederland",
+      "beschikbaarheid_nl": 4500000,
+      "verhaal": "Populaire handpeer, sappig en zoet, geteeld in Gelderland.",
+      "soort_fruit": "Pitfruit",
+      "producent": {
+        "boer": "Mila Jansen",
+        "boerderij": "Lindehof",
+        "provincie_of_streek": "Betuwe (Gelderland)",
+        "boer_bericht": "Ik hoop dat deze oogst mensen samenbrengt aan tafel."
+      }
+    },
+    {
+      "categorie": "Bessen",
+      "naam": "Jostabes",
+      "herkomst": "Nederland",
+      "beschikbaarheid_nl": 200000,
+      "verhaal": "Kruising van zwarte bes en kruisbes, rijk aan smaak.",
+      "soort_fruit": "Bes",
+      "producent": {
+        "boer": "Noor Visser",
+        "boerderij": "Vogelweide",
+        "provincie_of_streek": "Betuwe (Gelderland)",
+        "boer_bericht": "Mijn wens: dat je deze vrucht deelt met iemand die je liefhebt."
+      }
+    },
+    {
+      "categorie": "Steenvruchten",
+      "naam": "Mirabelpruim",
+      "herkomst": "Nederland",
+      "beschikbaarheid_nl": 300000,
+      "verhaal": "Kleine, zoete pruimen, geliefd voor confiture.",
+      "soort_fruit": "Steenfruit",
+      "producent": {
+        "boer": "Pieter van den Berg",
+        "boerderij": "Valleirand",
+        "provincie_of_streek": "Betuwe (Gelderland)",
+        "boer_bericht": "Met respect voor de natuur geteeld, voor een betere toekomst."
+      }
+    },
+    {
+      "categorie": "Pitfruit",
+      "naam": "Elstar (appel)",
+      "herkomst": "Nederland",
+      "beschikbaarheid_nl": 7000000,
+      "verhaal": "Frisse, knapperige appel, een Nederlandse klassieker.",
+      "soort_fruit": "Pitfruit",
+      "producent": {
+        "boer": "Roos Visser",
+        "boerderij": "Groene Akker",
+        "provincie_of_streek": "Betuwe (Gelderland)",
+        "boer_bericht": "Mijn wens is dat je geniet van de smaak zoals ik van het telen geniet."
+      }
+    },
+    {
+      "categorie": "Pitfruit",
+      "naam": "Jonagold (appel)",
+      "herkomst": "Nederland",
+      "beschikbaarheid_nl": 6500000,
+      "verhaal": "Zoetzure appel, ideaal voor sap en gebak.",
+      "soort_fruit": "Pitfruit",
+      "producent": {
+        "boer": "Kees Meijer",
+        "boerderij": "Groene Akker",
+        "provincie_of_streek": "Betuwe (Gelderland)",
+        "boer_bericht": "Ik hoop dat deze oogst je inspireert tot gezonde keuzes."
+      }
+    },
+    {
+      "categorie": "Steenvruchten",
+      "naam": "Kers (zoet)",
+      "herkomst": "Nederland",
+      "beschikbaarheid_nl": 1800000,
+      "verhaal": "Dieprode kersen, sappig en zoet, uit de Betuwe.",
+      "soort_fruit": "Steenfruit",
+      "producent": {
+        "boer": "Roos Smit",
+        "boerderij": "Zonnekamp",
+        "provincie_of_streek": "Betuwe (Gelderland)",
+        "boer_bericht": "Ik hoop dat deze oogst mensen samenbrengt aan tafel."
+      }
+    }
+  ]
+}
