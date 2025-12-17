@@ -4,6 +4,7 @@ module com.groep3 {
     //    requires com.fasterxml.jackson.annotations;
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.graphics;
 
     // export the root package so javafx.graphics can access App
     exports com.groep3;

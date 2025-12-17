@@ -19,6 +19,7 @@
                 <TextField fx:id="searchBar" promptText="Zoek fruit...." styleClass="search-bar"
                     HBox.hgrow="ALWAYS" />
             </StackPane>
+            <MenuButton fx:id="filterButton" />
         </HBox>
     </top>
 
