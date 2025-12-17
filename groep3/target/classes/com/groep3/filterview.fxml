@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuButton?>
+
+<MenuButton fx:id="filterButton" fx:controller="com.groep3.views.FilterView" xmlns:fx="http://javafx.com/fxml">
+    
+    <!-- The MenuButton content can be set in the controller -->
+</MenuButton>

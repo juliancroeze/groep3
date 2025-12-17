@@ -14,6 +14,7 @@ module com.groep3 {
 
     // controllers are instantiated/reflected by FXMLLoader: open to javafx.fxml
     opens com.groep3.controller to javafx.fxml;
+    opens com.groep3.views to javafx.fxml;
     opens com.groep3.model to com.fasterxml.jackson.databind; // <-- voeg toe
 
 
