@@ -43,8 +43,7 @@ public class MainScreenController {
         this.fruitCard = new FruitCard(shoppingCartController, productPopupController, total, winkelmandList);
         this.searchBarController = new SearchBarController(searchBar, fruitController, fruitCard, fruitItems);
         this.filterController = new FilterController();
-        // initialize filterController with the same references used by this screen
-        this.filterController.init(fruitController, fruitCard, fruitItems);
+        this.filterController.init(fruitController, fruitCard, fruitItems);// initialize filter controller
         loadFruits();
         shoppingCartController.initShoppingCart(total, winkelmandList);
         searchBarController.initSearchBar();

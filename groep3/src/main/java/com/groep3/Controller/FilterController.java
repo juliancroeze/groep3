@@ -13,9 +13,6 @@ public class FilterController {
 
  
 
-
-
-    // Initialize with references to the existing screen objects
     public void init(FruitController fruitController, FruitCard fruitCard, GridPane fruitItems) {
         this.fruitController = fruitController;
         this.fruitCard = fruitCard;

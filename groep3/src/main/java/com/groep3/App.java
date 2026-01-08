@@ -32,7 +32,6 @@ public class App extends Application {
         MainScreenController controller = loader.getController();
         controller.setFruitController(fruitController, shoppingCartController);
         mainController = controller;
-        // expose filterController to views
         filterController = controller.getFilterController();
 
         scene = new Scene(root, 1280, 720);

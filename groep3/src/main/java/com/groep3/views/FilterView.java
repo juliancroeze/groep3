@@ -31,7 +31,7 @@ public class FilterView {
         ImageView iconPriceLowHighView = new ImageView(iconPriceLowHigh);
         filterButton.setGraphic(imageView);
 
-        // set graphics for the existing menu items defined in FXML
+        //make icons for menu items
         menuItemAZ.setGraphic(iconAZView);
         menuItemZA.setGraphic(iconZAView);
         menuItemPriceHL.setGraphic(iconPriceHighLowView);
