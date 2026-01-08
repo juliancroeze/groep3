@@ -21,6 +21,8 @@ public class App extends Application {
 
     public static FruitController fruitController = new FruitController();
     public static ShoppingCartController shoppingCartController = new ShoppingCartController();
+    public static com.groep3.controller.MainScreenController mainController;
+    public static com.groep3.controller.FilterController filterController;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -29,6 +31,9 @@ public class App extends Application {
 
         MainScreenController controller = loader.getController();
         controller.setFruitController(fruitController, shoppingCartController);
+        mainController = controller;
+        // expose filterController to views
+        filterController = controller.getFilterController();
 
         scene = new Scene(root, 1280, 720);
         stage.setScene(scene);
@@ -43,6 +48,8 @@ public class App extends Application {
         if (fxml.equals("mainscreen")) {
             MainScreenController c = loader.getController();
             c.setFruitController(fruitController, shoppingCartController);
+            mainController = c;
+            filterController = c.getFilterController();
         }
 
         scene.setRoot(root);    

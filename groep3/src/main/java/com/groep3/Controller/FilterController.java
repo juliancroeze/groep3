@@ -1,58 +1,88 @@
 package com.groep3.controller;
 
-import javafx.fxml.FXML; 
+import com.groep3.model.Fruit;
+import com.groep3.views.FruitCard;
+
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox; 
 
 public class FilterController {
-
-    private MainScreenController mainController; 
-
- 
-
-    public void setMainScreenController(MainScreenController controller) { 
-
-        //this.MainScreenController = MainScreencontroller; 
-
-    } 
+    private FruitController fruitController;
+    private FruitCard fruitCard;
+    private GridPane fruitItems; 
 
  
 
-    @FXML 
 
-    private void filterAZ() { 
 
-        //mainController.applyFilter("AZ"); 
+    // Initialize with references to the existing screen objects
+    public void init(FruitController fruitController, FruitCard fruitCard, GridPane fruitItems) {
+        this.fruitController = fruitController;
+        this.fruitCard = fruitCard;
+        this.fruitItems = fruitItems;
+    }
 
-    } 
-
- 
-
-    @FXML 
-
-    private void filterZA() { 
-
-        //mainController.applyFilter("ZA"); 
-
-    } 
 
  
 
-    @FXML 
-
-    private void filterPriceLowHigh() { 
-
-        //mainController.applyFilter("PRICE_LOW_HIGH"); 
-
-    } 
+    public void applyFilterAZ() {
+        fruitController.getFruits().sort((f1, f2) -> f1.getName().compareToIgnoreCase(f2.getName()));
+        fruitItems.getChildren().clear();
+        int column = 0;
+        int row = 0;
+        for (Fruit fruit : fruitController.getFruits()) {
+            VBox card = fruitCard.getFruitCard(fruit);
+            fruitItems.add(card, column, row);
+            column++;
+            if (column == 4) { column = 0; row++; }
+        }
+    }
+       
 
  
 
-    @FXML 
+    public void applyFilterZA() {
+        fruitController.getFruits().sort((f1, f2) -> f2.getName().compareToIgnoreCase(f1.getName()));
+        fruitItems.getChildren().clear();
+        int column = 0;
+        int row = 0;
+        for (Fruit fruit : fruitController.getFruits()) {
+            VBox card = fruitCard.getFruitCard(fruit);
+            fruitItems.add(card, column, row);
+            column++;
+            if (column == 4) { column = 0; row++; }
+        }
+    }
 
-    private void filterPriceHighLow() { 
+ 
 
-        //mainController.applyFilter("PRICE_HIGH_LOW"); 
+    public void applyFilterPriceLowHigh() {
+        fruitController.getFruits().sort((f1, f2) -> Double.compare(f1.getPrice(), f2.getPrice()));
+        fruitItems.getChildren().clear();
+        int column = 0;
+        int row = 0;
+        for (Fruit fruit : fruitController.getFruits()) {
+            VBox card = fruitCard.getFruitCard(fruit);
+            fruitItems.add(card, column, row);
+            column++;
+            if (column == 4) { column = 0; row++; }
+        }
+    }
 
-    } 
+ 
+
+    public void applyFilterPriceHighLow() {
+        fruitController.getFruits().sort((f1, f2) -> Double.compare(f2.getPrice(), f1.getPrice()));
+        fruitItems.getChildren().clear();
+        int column = 0;
+        int row = 0;
+        for (Fruit fruit : fruitController.getFruits()) {
+            VBox card = fruitCard.getFruitCard(fruit);
+            fruitItems.add(card, column, row);
+            column++;
+            if (column == 4) { column = 0; row++; }
+        }
+    }
 
 } 
 

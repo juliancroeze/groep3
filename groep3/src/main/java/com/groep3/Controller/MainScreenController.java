@@ -6,8 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -44,6 +43,8 @@ public class MainScreenController {
         this.fruitCard = new FruitCard(shoppingCartController, productPopupController, total, winkelmandList);
         this.searchBarController = new SearchBarController(searchBar, fruitController, fruitCard, fruitItems);
         this.filterController = new FilterController();
+        // initialize filterController with the same references used by this screen
+        this.filterController.init(fruitController, fruitCard, fruitItems);
         loadFruits();
         shoppingCartController.initShoppingCart(total, winkelmandList);
         searchBarController.initSearchBar();
@@ -60,6 +61,11 @@ public class MainScreenController {
             column++;
             if (column == 4) { column = 0; row++; }
         }
+    }
+
+    // maakt filter controller beschikbaar voor FilterView
+    public FilterController getFilterController() {
+        return filterController;
     }
 
     @FXML
