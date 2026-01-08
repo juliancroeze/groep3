@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+
+<MenuButton
+    fx:id="filterButton"
+    xmlns:fx="http://javafx.com/fxml"
+    fx:controller="com.groep3.views.FilterView">
+
+    <items>
+        <MenuItem fx:id="menuItemAZ" text="AZ" onAction="#filterAZ" />
+        <MenuItem fx:id="menuItemZA" text="ZA" onAction="#filterZA" />
+        <MenuItem fx:id="menuItemPriceLH" text="Price Low-High" onAction="#filterPriceLowHigh" />
+        <MenuItem fx:id="menuItemPriceHL" text="Price High-Low" onAction="#filterPriceHighLow" />
+    </items>
+
+</MenuButton>
+    

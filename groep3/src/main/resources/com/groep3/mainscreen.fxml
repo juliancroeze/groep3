@@ -17,8 +17,10 @@
             </HBox>
             <StackPane maxWidth="450">
                 <TextField fx:id="searchBar" promptText="Zoek fruit...." styleClass="search-bar"
-                    HBox.hgrow="ALWAYS" />
+                    HBox.hgrow="ALWAYS" />      
             </StackPane>
+            <fx:include source="filterview.fxml" fx:id="filterButton" /> 
+            <!-- <fx:include source="filterview.fxml" fx:id="filterButton" /> -->
         </HBox>
     </top>
 

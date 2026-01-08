@@ -1,0 +1,4 @@
+.filter:focused {
+    -fx-border-color: #27ae60;       
+    -fx-border-width: 2;
+}
