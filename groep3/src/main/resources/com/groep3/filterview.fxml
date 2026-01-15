@@ -5,14 +5,17 @@
 
 <MenuButton
     fx:id="filterButton"
+    text="Filter"
+    styleClass="filter-button"
     xmlns:fx="http://javafx.com/fxml"
-    fx:controller="com.groep3.views.FilterView">
+    fx:controller="com.groep3.views.FilterView"
+    stylesheets="@css/filter.css">
 
     <items>
-        <MenuItem fx:id="menuItemAZ" text="AZ" onAction="#filterAZ" />
-        <MenuItem fx:id="menuItemZA" text="ZA" onAction="#filterZA" />
-        <MenuItem fx:id="menuItemPriceLH" text="Price Low-High" onAction="#filterPriceLowHigh" />
-        <MenuItem fx:id="menuItemPriceHL" text="Price High-Low" onAction="#filterPriceHighLow" />
+        <MenuItem fx:id="menuItemAZ" text="AZ" styleClass="filter-menu-item" onAction="#filterAZ" />
+        <MenuItem fx:id="menuItemZA" text="ZA" styleClass="filter-menu-item" onAction="#filterZA" />
+        <MenuItem fx:id="menuItemPriceLH" text="Price Low-High" styleClass="filter-menu-item" onAction="#filterPriceLowHigh" />
+        <MenuItem fx:id="menuItemPriceHL" text="Price High-Low" styleClass="filter-menu-item" onAction="#filterPriceHighLow" />
     </items>
 
 </MenuButton>

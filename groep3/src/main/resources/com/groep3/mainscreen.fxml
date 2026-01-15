@@ -11,11 +11,11 @@
 
     <!-- Header -->
     <top>
-        <HBox prefHeight='82.49' spacing="10" styleClass="header">
+        <HBox prefHeight='82.49' spacing="10" styleClass="header" alignment="CENTER_LEFT">
             <HBox spacing="10" styleClass="header-title-box">
                 <Label text="OrderIT!" styleClass="header-label" />
             </HBox>
-            <StackPane maxWidth="450">
+            <StackPane maxWidth="450" alignment="CENTER">
                 <TextField fx:id="searchBar" promptText="Zoek fruit...." styleClass="search-bar"
                     HBox.hgrow="ALWAYS" />      
             </StackPane>
