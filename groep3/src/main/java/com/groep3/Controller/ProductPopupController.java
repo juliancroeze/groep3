@@ -16,10 +16,19 @@ import javafx.stage.Stage;
 public class ProductPopupController {
 
     @FXML private ImageView fruitImage;
+
     @FXML private Label fruitName;
-    @FXML private Label fruitBoer;
-    @FXML private Label fruitDescription;
     @FXML private Label fruitPrice;
+    @FXML private Label fruitBoer;
+    @FXML private Label fruitOrigin;
+    @FXML private Label fruitCategory;
+    @FXML private Label fruitType;
+    @FXML private Label fruitStock;
+    @FXML private Label fruitFarm;
+    @FXML private Label fruitRegion;
+
+    @FXML private Label fruitDescription;
+    @FXML private Label fruitMessage;
 
     @FXML private TextField aantalInput;
     @FXML private Button plusBtn;
@@ -35,7 +44,6 @@ public class ProductPopupController {
         this.stage = stage;
     }
 
-    // check of fruit al bestaat zoja laad data in winkel mandje
     public void setShoppingCart(ShoppingCartController cart) {
         this.shoppingCart = cart;
         if (this.fruit != null) {
@@ -43,7 +51,6 @@ public class ProductPopupController {
         }
     }
 
-    // zet fruit in popup
     public void setFruit(Fruit fruit) {
         this.fruit = fruit;
         if (this.shoppingCart != null) {
@@ -51,12 +58,6 @@ public class ProductPopupController {
         }
     }
 
-    // Stelt het fruit in en laadt de gegevens als deze al beschikbaar zijn
-    private void updateMinusButtonVisibility(int amount) {
-        minusBtn.setVisible(amount > 0);
-    }
-
-    // zorgt dat er geen error komt bij niet geen getal
     private int safeParse(String text) {
         try {
             return Integer.parseInt(text.trim());
@@ -65,12 +66,25 @@ public class ProductPopupController {
         }
     }
 
-    // Laadt de gegevens van het geselecteerde fruit in de popup en toont de huidige hoeveelheid uit het winkelmandje
+    private void updateMinusButtonVisibility(int amount) {
+        minusBtn.setVisible(amount > 0);
+    }
+
+    // ✅ HIER WORDT ALLES ECHT INGEVULD
     private void loadFruitData() {
         fruitName.setText(fruit.getName());
         fruitDescription.setText(fruit.getDescription());
-        fruitBoer.setText(fruit.getProducer());
+        fruitBoer.setText("Boer: " + fruit.getProducer());
         fruitPrice.setText(String.format("€ %.2f", fruit.getPrice()));
+
+        fruitOrigin.setText("Herkomst: " + fruit.getHerkomst());
+        fruitCategory.setText("Categorie: " + fruit.getCategorie());
+        fruitType.setText("Soort: " + fruit.getSoort());
+        fruitStock.setText("Beschikbaar: " + fruit.getBeschikbaarheid());
+        fruitFarm.setText("Boerderij: " + fruit.getBoerderij());
+        fruitRegion.setText("Streek: " + fruit.getStreek());
+
+        fruitMessage.setText(fruit.getBoerBericht());
 
         if (fruit.getImagePath() != null) {
             try {
@@ -80,7 +94,6 @@ public class ProductPopupController {
         }
 
         int amount = shoppingCart.getCartItems().getOrDefault(fruit, 0);
-
         aantalInput.setText(String.valueOf(amount));
         updateMinusButtonVisibility(amount);
     }
@@ -88,7 +101,6 @@ public class ProductPopupController {
     @FXML
     private void initialize() {
 
-        // Plus-knop: verhoogt de hoeveelheid met 1
         plusBtn.setOnAction(e -> {
             int cur = safeParse(aantalInput.getText());
             cur++;
@@ -96,7 +108,6 @@ public class ProductPopupController {
             updateMinusButtonVisibility(cur);
         });
 
-        // Minus-knop: verlaagt de hoeveelheid met 1 (maar niet onder 0)
         minusBtn.setOnAction(e -> {
             int cur = safeParse(aantalInput.getText());
             if (cur > 0) cur--;
@@ -104,15 +115,12 @@ public class ProductPopupController {
             updateMinusButtonVisibility(cur);
         });
 
-        // Add-to-cart knop: slaat de gekozen hoeveelheid op in het winkelmandje en sluit de popup
         addToCartBtn.setOnAction(e -> {
             int amount = safeParse(aantalInput.getText());
-
             shoppingCart.setAmount(fruit, amount);
             stage.close();
         });
 
-        // Sluit de popup zonder iets te wijzigen
         closeBtn.setOnAction(e -> stage.close());
     }
 
@@ -135,7 +143,6 @@ public class ProductPopupController {
 
             shoppingCartController.updateShoppingCart(winkelmandList);
             total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
-
 
         } catch (Exception e) {
             e.printStackTrace();
