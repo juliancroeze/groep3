@@ -4,7 +4,7 @@ public class Fruit {
     private String name;
     private String description;
     private String imagePath;
-    private double price;
+    protected double price;
 
 
     private String producer;
@@ -21,6 +21,9 @@ public class Fruit {
         this.price = price;
     }
 
+
+
+
     // Constructor zonder afbeelding
     public Fruit(String name, String description, double price) {
         this.name = name;
@@ -28,6 +31,8 @@ public class Fruit {
         this.imagePath = null;
         this.price = price;
     }
+
+
 
     // Getters en setters
 
@@ -65,4 +70,5 @@ public class Fruit {
     public void setPrice(double price) {
         this.price = price;
     }
+
 }
