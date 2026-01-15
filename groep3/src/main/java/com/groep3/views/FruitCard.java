@@ -19,15 +19,15 @@ public class FruitCard {
 
     private ShoppingCartController shoppingCartController;
     private ProductPopupController productPopupController;
-    private ListView<String> winkelmandList;
     private Label total;
+    private ListView<HBox> winkelmandList;
 
-    public FruitCard(ShoppingCartController shoppingCartController, ProductPopupController productPopupController, Label total, ListView<String> winkelmandList) {
+
+    public FruitCard(ShoppingCartController shoppingCartController, ProductPopupController productPopupController, Label total, ListView<HBox> winkelmandList) {
         this.shoppingCartController = shoppingCartController;
         this.productPopupController = productPopupController;
         this.winkelmandList = winkelmandList;
         this.total = total;
-
     }
 
     public VBox getFruitCard(Fruit fruit) {
@@ -38,7 +38,8 @@ public class FruitCard {
         fruitContainer.setPrefSize(fruitContainerWidth, fruitContainerHeiht);
         fruitContainer.getStyleClass().add("fruit-card");
 
-        fruitContainer.setOnMouseClicked(e -> productPopupController.openPopup(fruit, shoppingCartController, winkelmandList, total));
+        fruitContainer.setOnMouseClicked(
+        e -> productPopupController.openPopup(fruit, shoppingCartController, winkelmandList, total));
 
         VBox imgBox = new VBox();
 
@@ -85,18 +86,20 @@ public class FruitCard {
 
         removeButton.setOnAction(e -> {
             shoppingCartController.remove(fruit);
-            shoppingCartController.updateShoppingCart(winkelmandList);
+            shoppingCartController.updateShoppingCart(winkelmandList, total);
             total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
         });
+        
 
         Button addButton = new Button("+");
         addButton.getStyleClass().add("fruit-add-button");
 
         addButton.setOnAction(e -> {
             shoppingCartController.add(fruit);
-            shoppingCartController.updateShoppingCart(winkelmandList);
+            shoppingCartController.updateShoppingCart(winkelmandList, total);
             total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
         });
+        
 
         infoContainer.getChildren().addAll(name, description, price);
         buttonContainer.getChildren().addAll(removeButton, addButton);

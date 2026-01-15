@@ -8,6 +8,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 
@@ -21,7 +22,7 @@ public class MainScreenController {
 
     @FXML private GridPane fruitItems;
     @FXML private TextField searchBar;
-    @FXML private ListView<String> winkelmandList;
+    @FXML private ListView<HBox> winkelmandList;
     @FXML private Label total;
     @FXML private Button afrekenButton;
     @FXML private MenuButton filterButton;

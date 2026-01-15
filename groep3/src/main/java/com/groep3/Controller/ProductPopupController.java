@@ -10,31 +10,49 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ProductPopupController {
 
-    @FXML private ImageView fruitImage;
+    @FXML
+    private ImageView fruitImage;
 
-    @FXML private Label fruitName;
-    @FXML private Label fruitPrice;
-    @FXML private Label fruitBoer;
-    @FXML private Label fruitOrigin;
-    @FXML private Label fruitCategory;
-    @FXML private Label fruitType;
-    @FXML private Label fruitStock;
-    @FXML private Label fruitFarm;
-    @FXML private Label fruitRegion;
+    @FXML
+    private Label fruitName;
+    @FXML
+    private Label fruitPrice;
+    @FXML
+    private Label fruitBoer;
+    @FXML
+    private Label fruitOrigin;
+    @FXML
+    private Label fruitCategory;
+    @FXML
+    private Label fruitType;
+    @FXML
+    private Label fruitStock;
+    @FXML
+    private Label fruitFarm;
+    @FXML
+    private Label fruitRegion;
 
-    @FXML private Label fruitDescription;
-    @FXML private Label fruitMessage;
+    @FXML
+    private Label fruitDescription;
+    @FXML
+    private Label fruitMessage;
 
-    @FXML private TextField aantalInput;
-    @FXML private Button plusBtn;
-    @FXML private Button minusBtn;
-    @FXML private Button addToCartBtn;
-    @FXML private Button closeBtn;
+    @FXML
+    private TextField aantalInput;
+    @FXML
+    private Button plusBtn;
+    @FXML
+    private Button minusBtn;
+    @FXML
+    private Button addToCartBtn;
+    @FXML
+    private Button closeBtn;
 
     private Fruit fruit;
     private Stage stage;
@@ -70,7 +88,7 @@ public class ProductPopupController {
         minusBtn.setVisible(amount > 0);
     }
 
-    // ✅ HIER WORDT ALLES ECHT INGEVULD
+    // Loads fruit info into popup
     private void loadFruitData() {
         fruitName.setText(fruit.getName());
         fruitDescription.setText(fruit.getDescription());
@@ -90,7 +108,8 @@ public class ProductPopupController {
             try {
                 Image img = new Image(App.class.getResourceAsStream(fruit.getImagePath()));
                 fruitImage.setImage(img);
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
         }
 
         int amount = shoppingCart.getCartItems().getOrDefault(fruit, 0);
@@ -110,7 +129,8 @@ public class ProductPopupController {
 
         minusBtn.setOnAction(e -> {
             int cur = safeParse(aantalInput.getText());
-            if (cur > 0) cur--;
+            if (cur > 0)
+                cur--;
             aantalInput.setText(String.valueOf(cur));
             updateMinusButtonVisibility(cur);
         });
@@ -124,7 +144,8 @@ public class ProductPopupController {
         closeBtn.setOnAction(e -> stage.close());
     }
 
-    public void openPopup(Fruit fruit, ShoppingCartController shoppingCartController, ListView<String> winkelmandList, Label total) {
+    public void openPopup(Fruit fruit, ShoppingCartController shoppingCartController,
+            ListView<HBox> winkelmandList, Label total) {
         try {
             FXMLLoader loader = new FXMLLoader(App.class.getResource("productPopup.fxml"));
             Parent root = loader.load();
@@ -141,7 +162,7 @@ public class ProductPopupController {
 
             popupStage.showAndWait();
 
-            shoppingCartController.updateShoppingCart(winkelmandList);
+            shoppingCartController.updateShoppingCart(winkelmandList, total);
             total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
 
         } catch (Exception e) {

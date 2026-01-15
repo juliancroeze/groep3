@@ -6,10 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 import com.groep3.model.Fruit;
+import com.groep3.views.ShoppingCartItem;
 
 import javafx.collections.FXCollections;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.HBox;
 
 public class ShoppingCartController {
     private HashMap<Fruit, Integer> cartItems;
@@ -19,10 +21,11 @@ public class ShoppingCartController {
 
     }
 
-    public void initShoppingCart(Label total, ListView<String> winkelmandList) {
-        total.setText("Total: € " + String.format("%.2f", getTotal()));
-        winkelmandList.setItems(FXCollections.observableArrayList());
-    }
+    public void initShoppingCart(Label total, ListView<HBox> winkelmandList) {
+    total.setText("Total: € " + String.format("%.2f", getTotal()));
+    winkelmandList.setItems(FXCollections.observableArrayList());
+}
+
 
     public HashMap<Fruit, Integer> getCartItems() {
         return cartItems;
@@ -64,17 +67,22 @@ public class ShoppingCartController {
         }
     }
 
-    public void updateShoppingCart(ListView<String> winkelmandList) {
-        List<String> itemNames = new ArrayList<>();
-        for (Map.Entry<Fruit, Integer> entry : getCartItems().entrySet()) {
-            Fruit fruit = entry.getKey();
-            int count = entry.getValue();
-            double totalPrice = fruit.getPrice() * count;
+    public void updateShoppingCart(ListView<HBox> winkelmandList, Label total) {
+    List<HBox> items = new ArrayList<>();
 
-            itemNames.add(fruit.getName() + " x" + count + " - €" + String.format("%.2f", totalPrice));
+    ShoppingCartItem cartItemView =
+            new ShoppingCartItem(this, total, () -> updateShoppingCart(winkelmandList, total));
+
+    for (Map.Entry<Fruit, Integer> entry : cartItems.entrySet()) {
+        Fruit fruit = entry.getKey();
+        HBox item = cartItemView.createCartItem(fruit);
+        if (item != null) {
+            items.add(item);
         }
-
-        winkelmandList.setItems(FXCollections.observableArrayList(itemNames));
     }
+
+    winkelmandList.setItems(FXCollections.observableArrayList(items));
+}
+
 
 }

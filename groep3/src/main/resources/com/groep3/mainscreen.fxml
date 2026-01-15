@@ -4,7 +4,6 @@
 <?import javafx.scene.control.*?>
 
 <BorderPane fx:controller="com.groep3.controller.MainScreenController"
-
     xmlns:fx="http://javafx.com/fxml"
     prefWidth="1280" prefHeight="720"
     stylesheets="@css/mainScreen.css">
@@ -17,15 +16,15 @@
             </HBox>
             <StackPane maxWidth="450" alignment="CENTER">
                 <TextField fx:id="searchBar" promptText="Zoek fruit...." styleClass="search-bar"
-                    HBox.hgrow="ALWAYS" />      
+                    HBox.hgrow="ALWAYS" />
             </StackPane>
-            <fx:include source="filterview.fxml" fx:id="filterButton" /> 
+            <fx:include source="filterview.fxml" fx:id="filterButton" />
             <!-- <fx:include source="filterview.fxml" fx:id="filterButton" /> -->
         </HBox>
     </top>
 
     <center>
-        <HBox spacing="10" style=' -fx-padding: 10;'> 
+        <HBox spacing="10" style=' -fx-padding: 10;'>
             <ScrollPane
                 styleClass="grid-container"
                 fx:id="scrollPane"
@@ -34,6 +33,8 @@
                 vbarPolicy="NEVER"
                 hbarPolicy="NEVER">
                 <GridPane fx:id="fruitItems"
+                    prefWidth="937.5"
+                    prefHeight="614.95"
                     styleClass="grid-pane"
                     hgap="10"
                     vgap="10" />
