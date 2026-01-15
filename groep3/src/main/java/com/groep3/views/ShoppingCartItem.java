@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 
 public class ShoppingCartItem {
 
@@ -31,6 +32,8 @@ public class ShoppingCartItem {
         cartItem.setAlignment(Pos.CENTER_LEFT);
         cartItem.setPrefHeight(60);
 
+        VBox nameAmount = new VBox();
+
         Label nameLabel = new Label(fruit.getName());
 
         HBox quantityBox = new HBox(8);
@@ -44,12 +47,14 @@ public class ShoppingCartItem {
 
         quantityBox.getChildren().addAll(minusBtn, quantityLabel, plusBtn);
 
+        nameAmount.getChildren().addAll(nameLabel, quantityBox);
+
         double itemTotal = fruit.getPrice() * quantity;
         Label priceLabel = new Label("€ " + String.format("%.2f", itemTotal));
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
-        cartItem.getChildren().addAll(nameLabel, quantityBox, spacer, priceLabel);
+        cartItem.getChildren().addAll( nameAmount,  spacer, priceLabel);
 
         plusBtn.setOnAction(e -> {
             controller.add(fruit);
