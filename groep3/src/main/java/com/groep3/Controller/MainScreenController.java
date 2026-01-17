@@ -59,7 +59,9 @@ public class MainScreenController {
             fruitItems.add(card, column, row);
 
             column++;
-            if (column == 4) { column = 0; row++; }
+            if (column == 4) {
+                column = 0; row++;
+            }
         }
     }
 
