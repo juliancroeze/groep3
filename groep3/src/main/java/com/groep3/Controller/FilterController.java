@@ -11,74 +11,48 @@ public class FilterController {
     private FruitCard fruitCard;
     private GridPane fruitItems; 
 
- 
+    private AZFilter azFilter;
+    private ZAFilter zaFilter;
+    private PriceLowHighFilter priceLowHighFilter;
+    private PriceHighLowFilter priceHighLowFilter;
 
     public void init(FruitController fruitController, FruitCard fruitCard, GridPane fruitItems) {
         this.fruitController = fruitController;
         this.fruitCard = fruitCard;
         this.fruitItems = fruitItems;
+        this.azFilter = new AZFilter(this, fruitController, fruitCard, fruitItems);
+        this.zaFilter = new ZAFilter(this, fruitController, fruitCard, fruitItems);
+        this.priceLowHighFilter = new PriceLowHighFilter(this, fruitController, fruitCard, fruitItems);
+        this.priceHighLowFilter = new PriceHighLowFilter(this, fruitController, fruitCard, fruitItems);
     }
 
-
- 
+    public void updateFruitItems() {
+        fruitItems.getChildren().clear();
+        int column = 0;
+        int row = 0;
+        for (Fruit fruit : fruitController.getFruits()) {
+            VBox card = fruitCard.getFruitCard(fruit);
+            fruitItems.add(card, column, row);
+            column++;
+            if (column == 4){
+                column = 0; row++; }
+        }
+    }
 
     public void applyFilterAZ() {
-        fruitController.getFruits().sort((f1, f2) -> f1.getName().compareToIgnoreCase(f2.getName()));
-        fruitItems.getChildren().clear();
-        int column = 0;
-        int row = 0;
-        for (Fruit fruit : fruitController.getFruits()) {
-            VBox card = fruitCard.getFruitCard(fruit);
-            fruitItems.add(card, column, row);
-            column++;
-            if (column == 4) { column = 0; row++; }
-        }
+        azFilter.apply();
     }
-       
-
- 
 
     public void applyFilterZA() {
-        fruitController.getFruits().sort((f1, f2) -> f2.getName().compareToIgnoreCase(f1.getName()));
-        fruitItems.getChildren().clear();
-        int column = 0;
-        int row = 0;
-        for (Fruit fruit : fruitController.getFruits()) {
-            VBox card = fruitCard.getFruitCard(fruit);
-            fruitItems.add(card, column, row);
-            column++;
-            if (column == 4) { column = 0; row++; }
-        }
+        zaFilter.apply();
     }
-
- 
 
     public void applyFilterPriceLowHigh() {
-        fruitController.getFruits().sort((f1, f2) -> Double.compare(f1.getPrice(), f2.getPrice()));
-        fruitItems.getChildren().clear();
-        int column = 0;
-        int row = 0;
-        for (Fruit fruit : fruitController.getFruits()) {
-            VBox card = fruitCard.getFruitCard(fruit);
-            fruitItems.add(card, column, row);
-            column++;
-            if (column == 4) { column = 0; row++; }
-        }
+        priceLowHighFilter.apply();
     }
 
- 
-
     public void applyFilterPriceHighLow() {
-        fruitController.getFruits().sort((f1, f2) -> Double.compare(f2.getPrice(), f1.getPrice()));
-        fruitItems.getChildren().clear();
-        int column = 0;
-        int row = 0;
-        for (Fruit fruit : fruitController.getFruits()) {
-            VBox card = fruitCard.getFruitCard(fruit);
-            fruitItems.add(card, column, row);
-            column++;
-            if (column == 4) { column = 0; row++; }
-        }
+        priceHighLowFilter.apply();
     }
 
 } 
