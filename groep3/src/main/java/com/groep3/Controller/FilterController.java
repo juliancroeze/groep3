@@ -35,7 +35,8 @@ public class FilterController {
             fruitItems.add(card, column, row);
             column++;
             if (column == 4){
-                column = 0; row++; }
+                column = 0; row++;
+            }
         }
     }
 
