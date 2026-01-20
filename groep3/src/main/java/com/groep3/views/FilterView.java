@@ -29,13 +29,6 @@ public class FilterView {
         ImageView iconZAView = new ImageView(iconZA);
         ImageView iconPriceHighLowView = new ImageView(iconPriceHighLow);
         ImageView iconPriceLowHighView = new ImageView(iconPriceLowHigh);
-        //filterButton.setGraphic(imageView);
-
-        //make icons for menu items
-        //menuItemAZ.setGraphic(iconAZView);
-        //menuItemZA.setGraphic(iconZAView);
-        //menuItemPriceHL.setGraphic(iconPriceHighLowView);
-        //menuItemPriceLH.setGraphic(iconPriceLowHighView);
 
     }
 
