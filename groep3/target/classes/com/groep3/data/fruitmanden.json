@@ -1,0 +1,62 @@
+{
+    "fruitmanden": [
+      {
+        "name": "Biologische Tropische Verwenning",
+        "description": "Een luxe mand vol exotische, biologisch geteelde tropische vruchten. Perfect voor een vitamineboost en een tropisch gevoel thuis.",
+        "imagePath": "images/bio-tropische-mand.jpg",
+        "price": 42.50,
+        "fruits": [
+          "Mango",
+          "Banaan",
+          "Ananas",
+          "Kiwi",
+          "Papaja",
+          "Granaatappel"
+        ],
+        "type": "organic"
+      },
+      {
+        "name": "Frisse Citrus Selectie",
+        "description": "Een verfrissende mix van sappige citrusvruchten, ideaal voor sap, salades of gewoon als gezonde snack.",
+        "imagePath": "images/fruitmand.png",
+        "price": 19.95,
+        "fruits": [
+          "Sinaasappel",
+          "Mandarijn",
+          "Citroen",
+          "Grapefruit"
+        ],
+        "type": ""
+      },
+      {
+        "name": "Biologische Nederlandse Seizoensmand",
+        "description": "Vers geoogste biologische vruchten van eigen bodem en kassen. Duurzaam, lokaal en boordevol smaak.",
+        "imagePath": "images/bio-lokale-mand.jpg",
+        "price": 34.95,
+        "fruits": [
+          "Appel",
+          "Peer",
+          "Aardbei",
+          "Blauwe bes",
+          "Framboos",
+          "Kers"
+        ],
+        "type": "organic"
+      },
+      {
+        "name": "Familie Favorieten Mix",
+        "description": "Een gevarieerde mand met klassieke en exotische vruchten die bij jong en oud in de smaak vallen. Perfect voor het hele gezin.",
+        "imagePath": "images/familie-mand.jpg",
+        "price": 27.99,
+        "fruits": [
+          "Banaan",
+          "Sinaasappel",
+          "Appel",
+          "Perzik",
+          "Abrikoos",
+          "Pruim"
+        ],
+        "type": ""
+      }
+    ]
+  }

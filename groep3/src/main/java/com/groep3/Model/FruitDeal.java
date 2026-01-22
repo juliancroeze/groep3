@@ -1,23 +1,32 @@
 package com.groep3.model;
 
 public class FruitDeal extends Fruit {
-    String salePercentageLabel;
-    int pertcentage = 12;
-    Double alteredPrice;
+    private int percentage;
+    private String salePercentageLabel;
 
-    
     public FruitDeal(String name, String description, String imagePath, double price) {
         super(name, description, imagePath, price);
-    };
+    }
+
+    public void setPercentage(int percentage) {
+        this.percentage = Math.max(0, Math.min(100, percentage));
+        this.salePercentageLabel = "-" + this.percentage + "%";
+    }
+
+    public int getPercentage() {
+        return percentage;
+    }
+
+    public String getSalePercentageLabel() {
+        return salePercentageLabel;
+    }
 
     @Override
     public double getPrice() {
-        int maxPercentage = 100;
+        return super.getPrice() * (100.0 - percentage) / 100.0;
+    }
 
-        int calculatedPercentage = maxPercentage - pertcentage;
-
-        return price / maxPercentage * calculatedPercentage;
-
-    };
-
+    public double getOriginalPrice() {
+        return super.getPrice();
+    }
 }

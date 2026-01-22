@@ -12,13 +12,37 @@ public class Vrucht {
     @JsonProperty("soort_fruit")
     private String soortFruit;
     private Producent producent;
+    private Integer percentage;
 
-    // getters
-    public String getCategorie() { return categorie; }
-    public String getNaam() { return naam; }
-    public String getHerkomst() { return herkomst; }
-    public long getBeschikbaarheidNl() { return beschikbaarheidNl; }
-    public String getVerhaal() { return verhaal; }
-    public String getSoortFruit() { return soortFruit; }
-    public Producent getProducent() { return producent; }
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public String getNaam() {
+        return naam;
+    }
+
+    public String getHerkomst() {
+        return herkomst;
+    }
+
+    public long getBeschikbaarheidNl() {
+        return beschikbaarheidNl;
+    }
+
+    public String getVerhaal() {
+        return verhaal;
+    }
+
+    public String getSoortFruit() {
+        return soortFruit;
+    }
+
+    public Producent getProducent() {
+        return producent;
+    }
+
+    public Integer getPercentage() {
+        return percentage;
+    }
 }

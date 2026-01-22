@@ -1,11 +1,6 @@
 package com.groep3.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.groep3.model.Fruit;
+import com.groep3.model.Product;
 import com.groep3.views.ShoppingCartItem;
 
 import javafx.collections.FXCollections;
@@ -13,76 +8,74 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class ShoppingCartController {
-    private HashMap<Fruit, Integer> cartItems;
+
+    private HashMap<Product, Integer> cartItems = new HashMap<>();
 
     public ShoppingCartController() {
-        cartItems = new HashMap<Fruit, Integer>();
-
     }
 
     public void initShoppingCart(Label total, ListView<HBox> winkelmandList) {
-    total.setText("Total: € " + String.format("%.2f", getTotal()));
-    winkelmandList.setItems(FXCollections.observableArrayList());
-}
+        total.setText("Total: € " + String.format("%.2f", getTotal()));
+        winkelmandList.setItems(FXCollections.observableArrayList());
+    }
 
-
-    public HashMap<Fruit, Integer> getCartItems() {
+    public HashMap<Product, Integer> getCartItems() {
         return cartItems;
     }
 
     public double getTotal() {
         double sum = 0.0;
-        for (Fruit fruit : cartItems.keySet()) {
-            int quantity = cartItems.get(fruit);
-            sum += fruit.getPrice() * quantity;
+        for (Map.Entry<Product, Integer> entry : cartItems.entrySet()) {
+            Product product = entry.getKey();
+            int quantity = entry.getValue();
+            sum += product.getPrice() * quantity;
         }
         return sum;
     }
 
-    public void add(Fruit fruit) {
-        cartItems.put(fruit, cartItems.getOrDefault(fruit, 0) + 1);
+    public void add(Product product) {
+        cartItems.put(product, cartItems.getOrDefault(product, 0) + 1);
     }
 
-    public void remove(Fruit fruit) {
-        if (cartItems.containsKey(fruit)) {
-            int count = cartItems.get(fruit);
+    public void remove(Product product) {
+        if (cartItems.containsKey(product)) {
+            int count = cartItems.get(product);
             if (count > 1) {
-                cartItems.put(fruit, count - 1);
+                cartItems.put(product, count - 1);
             } else {
-                cartItems.remove(fruit);
+                cartItems.remove(product);
             }
         }
     }
 
-    public HashMap<Fruit, Integer> getItems() {
-        return cartItems;
-    }
-
-    public void setAmount(Fruit fruit, int amount) {
+    public void setAmount(Product product, int amount) {
         if (amount <= 0) {
-            cartItems.remove(fruit);
+            cartItems.remove(product);
         } else {
-            cartItems.put(fruit, amount);
+            cartItems.put(product, amount);
         }
     }
 
     public void updateShoppingCart(ListView<HBox> winkelmandList, Label total) {
-    List<HBox> items = new ArrayList<>();
+        List<HBox> items = new ArrayList<>();
 
-    ShoppingCartItem cartItemView =
-            new ShoppingCartItem(this, total, () -> updateShoppingCart(winkelmandList, total));
+        ShoppingCartItem cartItemView = new ShoppingCartItem(this, total, () -> updateShoppingCart(winkelmandList, total));
 
-    for (Map.Entry<Fruit, Integer> entry : cartItems.entrySet()) {
-        Fruit fruit = entry.getKey();
-        HBox item = cartItemView.createCartItem(fruit);
-        if (item != null) {
-            items.add(item);
+        for (Map.Entry<Product, Integer> entry : cartItems.entrySet()) {
+            Product product = entry.getKey();
+            HBox item = cartItemView.createCartItem(product);
+            if (item != null) {
+                items.add(item);
+            }
         }
+
+        winkelmandList.setItems(FXCollections.observableArrayList(items));
+        total.setText("Total: € " + String.format("%.2f", getTotal()));
     }
-
-    winkelmandList.setItems(FXCollections.observableArrayList(items));
-}
-
-
 }

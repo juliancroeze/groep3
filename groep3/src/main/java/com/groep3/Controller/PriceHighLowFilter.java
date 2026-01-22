@@ -4,13 +4,13 @@ import com.groep3.views.FruitCard;
 import javafx.scene.layout.GridPane;
 
 public class PriceHighLowFilter extends FruitFilter {
-    public PriceHighLowFilter(FilterController filterController, FruitController fruitController, FruitCard fruitCard, GridPane fruitItems) {
-        super(filterController, fruitController, fruitCard, fruitItems);
+    public PriceHighLowFilter(FilterController filterController, ProductController productController, FruitCard fruitCard, GridPane fruitItems) {
+        super(filterController, productController, fruitCard, fruitItems);
     }
 
     @Override
     public void apply() {
-        fruitController.getFruits().sort((f1, f2) -> Double.compare(f2.getPrice(), f1.getPrice()));
+        productController.getProducts().sort((f1, f2) -> Double.compare(f2.getPrice(), f1.getPrice()));
         filterController.updateFruitItems();
     }
 }

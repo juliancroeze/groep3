@@ -61,6 +61,7 @@
       "naam": "Blauwe bes",
       "herkomst": "Nederland",
       "beschikbaarheid_nl": 1500000,
+      "percentage": 20,
       "verhaal": "Onze blauwe bessen komen uit de lokale teelt in Limburg, waar ze groeien in de rijke, zanderige grond. Deze besjes zitten boordevol antioxidanten.",
       "soort_fruit": "Bes",
       "producent": {
@@ -75,6 +76,7 @@
       "naam": "Rode bes",
       "herkomst": "Nederland (kassen)",
       "beschikbaarheid_nl": 1200000,
+      "percentage": 15,
       "verhaal": "Rode bessen uit Nederlandse kassen zijn sappig en perfect voor desserts. Ze worden onder gecontroleerde omstandigheden geteeld om de optimale smaak te behouden.",
       "soort_fruit": "Bes",
       "producent": {
@@ -89,6 +91,7 @@
       "naam": "Granaatappel",
       "herkomst": "Iran",
       "beschikbaarheid_nl": 500000,
+      "percentage": 28,
       "verhaal": "De granaatappel uit Iran wordt vaak beschouwd als een superfruit, met zijn sappige rode zaden vol antioxidanten.",
       "soort_fruit": "Steenfruit",
       "producent": {
@@ -215,6 +218,7 @@
       "naam": "Mandarijn",
       "herkomst": "Marokko",
       "beschikbaarheid_nl": 6000000,
+      "percentage": 50,
       "verhaal": "Mandarijnen uit Marokko zijn klein, sappig en vol van smaak. Ze worden geplukt in het winterseizoen en zijn ideaal als snack.",
       "soort_fruit": "Citrus",
       "producent": {

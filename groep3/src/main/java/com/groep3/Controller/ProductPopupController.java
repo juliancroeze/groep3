@@ -2,6 +2,10 @@ package com.groep3.controller;
 
 import com.groep3.App;
 import com.groep3.model.Fruit;
+import com.groep3.model.FruitBasket;
+import com.groep3.model.FruitDeal;
+import com.groep3.model.OrganicFruitBasket;
+import com.groep3.model.Product;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +22,6 @@ public class ProductPopupController {
 
     @FXML
     private ImageView fruitImage;
-
     @FXML
     private Label fruitName;
     @FXML
@@ -37,7 +40,6 @@ public class ProductPopupController {
     private Label fruitFarm;
     @FXML
     private Label fruitRegion;
-
     @FXML
     private Label fruitDescription;
     @FXML
@@ -54,7 +56,7 @@ public class ProductPopupController {
     @FXML
     private Button closeBtn;
 
-    private Fruit fruit;
+    private Product product;
     private Stage stage;
     private ShoppingCartController shoppingCart;
 
@@ -64,15 +66,15 @@ public class ProductPopupController {
 
     public void setShoppingCart(ShoppingCartController cart) {
         this.shoppingCart = cart;
-        if (this.fruit != null) {
-            loadFruitData();
+        if (this.product != null) {
+            loadProductData();
         }
     }
 
-    public void setFruit(Fruit fruit) {
-        this.fruit = fruit;
+    public void setProduct(Product product) {
+        this.product = product;
         if (this.shoppingCart != null) {
-            loadFruitData();
+            loadProductData();
         }
     }
 
@@ -88,38 +90,65 @@ public class ProductPopupController {
         minusBtn.setVisible(amount > 0);
     }
 
-    // Loads fruit info into popup
-    private void loadFruitData() {
-        fruitName.setText(fruit.getName());
-        fruitDescription.setText(fruit.getDescription());
-        fruitBoer.setText("Boer: " + fruit.getProducer());
-        fruitPrice.setText(String.format("€ %.2f", fruit.getPrice()));
+    private void loadProductData() {
+        fruitName.setText(product.getName());
+        fruitDescription.setText(product.getDescription());
 
-        fruitOrigin.setText("Herkomst: " + fruit.getHerkomst());
-        fruitCategory.setText("Categorie: " + fruit.getCategorie());
-        fruitType.setText("Soort: " + fruit.getSoort());
-        fruitStock.setText("Beschikbaar: " + fruit.getBeschikbaarheid());
-        fruitFarm.setText("Boerderij: " + fruit.getBoerderij());
-        fruitRegion.setText("Streek: " + fruit.getStreek());
+        String priceText = "€ " + String.format("%.2f", product.getPrice());
 
-        fruitMessage.setText(fruit.getBoerBericht());
+        if (product instanceof FruitDeal) {
+            FruitDeal deal = (FruitDeal) product;
+            priceText += " (was € " + String.format("%.2f", deal.getOriginalPrice()) + ")";
+        }
+        if (product instanceof OrganicFruitBasket) {
+            priceText += " (incl. bio-toeslag)";
+        }
+        fruitPrice.setText(priceText);
 
-        if (fruit.getImagePath() != null) {
+        fruitOrigin.setText("");
+        fruitCategory.setText("");
+        fruitType.setText("");
+        fruitStock.setText("");
+        fruitFarm.setText("");
+        fruitRegion.setText("");
+        fruitBoer.setText("");
+        fruitMessage.setText("");
+
+        if (product instanceof Fruit) {
+            Fruit fruit = (Fruit) product;
+            fruitOrigin.setText(fruit.getHerkomst() != null ? "Herkomst: " + fruit.getHerkomst() : "");
+            fruitCategory.setText(fruit.getCategorie() != null ? "Categorie: " + fruit.getCategorie() : "");
+            fruitType.setText(fruit.getSoort() != null ? "Soort: " + fruit.getSoort() : "");
+            fruitStock.setText(fruit.getBeschikbaarheid() > 0 ? "Beschikbaar: " + fruit.getBeschikbaarheid() : "");
+            fruitFarm.setText(fruit.getBoerderij() != null ? "Boerderij: " + fruit.getBoerderij() : "");
+            fruitRegion.setText(fruit.getStreek() != null ? "Streek: " + fruit.getStreek() : "");
+            fruitBoer.setText(fruit.getProducer() != null ? "Boer: " + fruit.getProducer() : "");
+            fruitMessage.setText(fruit.getBoerBericht() != null ? fruit.getBoerBericht() : "");
+        }
+
+        if (product instanceof FruitBasket) {
+            FruitBasket basket = (FruitBasket) product;
+            String contents = "Bevat: " + String.join(", ", basket.getContainedFruits());
+            fruitDescription.setText(product.getDescription() + "\n\n" + contents);
+            fruitCategory.setText("Fruitmand");
+            fruitType.setText(product instanceof OrganicFruitBasket ? "Biologisch" : "Standaard");
+        }
+
+        if (product.getImagePath() != null) {
             try {
-                Image img = new Image(App.class.getResourceAsStream(fruit.getImagePath()));
+                Image img = new Image(App.class.getResourceAsStream(product.getImagePath()));
                 fruitImage.setImage(img);
             } catch (Exception ignored) {
             }
         }
 
-        int amount = shoppingCart.getCartItems().getOrDefault(fruit, 0);
+        int amount = shoppingCart.getCartItems().getOrDefault(product, 0);
         aantalInput.setText(String.valueOf(amount));
         updateMinusButtonVisibility(amount);
     }
 
     @FXML
     private void initialize() {
-
         plusBtn.setOnAction(e -> {
             int cur = safeParse(aantalInput.getText());
             cur++;
@@ -137,14 +166,14 @@ public class ProductPopupController {
 
         addToCartBtn.setOnAction(e -> {
             int amount = safeParse(aantalInput.getText());
-            shoppingCart.setAmount(fruit, amount);
+            shoppingCart.setAmount(product, amount);
             stage.close();
         });
 
         closeBtn.setOnAction(e -> stage.close());
     }
 
-    public void openPopup(Fruit fruit, ShoppingCartController shoppingCartController,
+    public void openPopup(Product product, ShoppingCartController shoppingCartController,
             ListView<HBox> winkelmandList, Label total) {
         try {
             FXMLLoader loader = new FXMLLoader(App.class.getResource("productPopup.fxml"));
@@ -157,13 +186,12 @@ public class ProductPopupController {
 
             ProductPopupController controller = loader.getController();
             controller.setStage(popupStage);
-            controller.setFruit(fruit);
+            controller.setProduct(product);
             controller.setShoppingCart(shoppingCartController);
 
             popupStage.showAndWait();
 
             shoppingCartController.updateShoppingCart(winkelmandList, total);
-            total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
 
         } catch (Exception e) {
             e.printStackTrace();

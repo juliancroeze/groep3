@@ -1,7 +1,8 @@
 package com.groep3.views;
 
 import com.groep3.controller.ShoppingCartController;
-import com.groep3.model.Fruit;
+import com.groep3.model.Product;
+
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -22,8 +23,8 @@ public class ShoppingCartItem {
         this.refreshCallback = refreshCallback;
     }
 
-    public HBox createCartItem(Fruit fruit) {
-        int quantity = controller.getCartItems().getOrDefault(fruit, 0);
+    public HBox createCartItem(Product product) {
+        int quantity = controller.getCartItems().getOrDefault(product, 0);
         if (quantity <= 0) {
             return null;
         }
@@ -34,10 +35,10 @@ public class ShoppingCartItem {
 
         VBox nameAmount = new VBox();
 
-        Label nameLabel = new Label(fruit.getName());
+        Label nameLabel = new Label(product.getName());
 
         HBox quantityBox = new HBox(8);
-        quantityBox.setAlignment(Pos.CENTER);
+        quantityBox.setAlignment(Pos.CENTER_LEFT);
 
         Button minusBtn = new Button("-");
 
@@ -49,23 +50,23 @@ public class ShoppingCartItem {
 
         nameAmount.getChildren().addAll(nameLabel, quantityBox);
 
-        double itemTotal = fruit.getPrice() * quantity;
+        double itemTotal = product.getPrice() * quantity;
         Label priceLabel = new Label("€ " + String.format("%.2f", itemTotal));
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
-        cartItem.getChildren().addAll( nameAmount,  spacer, priceLabel);
+        cartItem.getChildren().addAll(nameAmount, spacer, priceLabel);
 
         plusBtn.setOnAction(e -> {
-            controller.add(fruit);
-            updateDisplays(fruit, quantityLabel, priceLabel);
+            controller.add(product);
+            updateDisplays(product, quantityLabel, priceLabel);
             if (refreshCallback != null)
                 refreshCallback.run();
         });
 
         minusBtn.setOnAction(e -> {
-            controller.remove(fruit);
-            updateDisplays(fruit, quantityLabel, priceLabel);
+            controller.remove(product);
+            updateDisplays(product, quantityLabel, priceLabel);
             if (refreshCallback != null)
                 refreshCallback.run();
         });
@@ -73,11 +74,11 @@ public class ShoppingCartItem {
         return cartItem;
     }
 
-    private void updateDisplays(Fruit fruit, Label quantityLabel, Label priceLabel) {
-        int qty = controller.getCartItems().getOrDefault(fruit, 0);
+    private void updateDisplays(Product product, Label quantityLabel, Label priceLabel) {
+        int qty = controller.getCartItems().getOrDefault(product, 0);
         quantityLabel.setText(String.valueOf(qty));
 
-        double itemTotal = fruit.getPrice() * qty;
+        double itemTotal = product.getPrice() * qty;
         priceLabel.setText("€ " + String.format("%.2f", itemTotal));
 
         totalLabel.setText("Total: € " + String.format("%.2f", controller.getTotal()));

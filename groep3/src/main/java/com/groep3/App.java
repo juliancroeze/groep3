@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import com.groep3.controller.FruitController;
+import com.groep3.controller.ProductController;
 import com.groep3.controller.MainScreenController;
 import com.groep3.controller.ShoppingCartController;
 
@@ -19,7 +19,7 @@ public class App extends Application {
 
     private static Scene scene;
 
-    public static FruitController fruitController = new FruitController();
+    public static ProductController productController = new ProductController();
     public static ShoppingCartController shoppingCartController = new ShoppingCartController();
     public static com.groep3.controller.MainScreenController mainController;
     public static com.groep3.controller.FilterController filterController;
@@ -30,7 +30,7 @@ public class App extends Application {
         Parent root = loader.load();
 
         MainScreenController controller = loader.getController();
-        controller.setFruitController(fruitController, shoppingCartController);
+        controller.setProductController(productController, shoppingCartController);
         mainController = controller;
         filterController = controller.getFilterController();
 
@@ -43,10 +43,9 @@ public class App extends Application {
         FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         Parent root = loader.load();
 
-        // Behoud de controller bij het wisselen van scherm
         if (fxml.equals("mainscreen")) {
             MainScreenController c = loader.getController();
-            c.setFruitController(fruitController, shoppingCartController);
+            c.setProductController(productController, shoppingCartController);
             mainController = c;
             filterController = c.getFilterController();
         }

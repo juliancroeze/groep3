@@ -3,8 +3,7 @@ package com.groep3.views;
 import com.groep3.App;
 import com.groep3.controller.ProductPopupController;
 import com.groep3.controller.ShoppingCartController;
-import com.groep3.model.Fruit;
-import com.groep3.model.FruitDeal;
+import com.groep3.model.FruitBasket;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -15,36 +14,31 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 
-public class FruitCard {
+public class BasketCard {
+    private ShoppingCartController shoppingCartController;
+    private ProductPopupController productPopupController;
+    private Label total;
+    private ListView<HBox> winkelmandList;
 
-    private final ShoppingCartController shoppingCartController;
-    private final ProductPopupController productPopupController;
-    private final Label total;
-    private final ListView<HBox> winkelmandList;
-
-    public FruitCard(ShoppingCartController shoppingCartController,
-                     ProductPopupController productPopupController,
-                     Label total,
-                     ListView<HBox> winkelmandList) {
+    public BasketCard(ShoppingCartController shoppingCartController, ProductPopupController productPopupController,
+            Label total, ListView<HBox> winkelmandList) {
         this.shoppingCartController = shoppingCartController;
         this.productPopupController = productPopupController;
-        this.total = total;
         this.winkelmandList = winkelmandList;
+        this.total = total;
     }
 
-    public VBox getFruitCard(Fruit fruit) {
-        double fruitContainerWidth = 221.80;
+    public VBox getBasketCard(FruitBasket fruitBasket) {
         double fruitContainerHeight = 191.65;
+        double fruitContainerWidth = 221.80;
 
         VBox fruitContainer = new VBox(5);
         fruitContainer.setPrefSize(fruitContainerWidth, fruitContainerHeight);
         fruitContainer.getStyleClass().add("fruit-card");
 
         fruitContainer.setOnMouseClicked(
-                e -> productPopupController.openPopup(fruit, shoppingCartController, winkelmandList, total));
+                e -> productPopupController.openPopup(fruitBasket, shoppingCartController, winkelmandList, total));
 
         VBox imgBox = new VBox();
         imgBox.setPrefSize(fruitContainerWidth, 89);
@@ -54,10 +48,10 @@ public class FruitCard {
         clip.setArcHeight(44);
         imgBox.setClip(clip);
 
-        if (fruit.getImagePath() != null && !fruit.getImagePath().isEmpty()) {
+        if (fruitBasket.getImagePath() != null && !fruitBasket.getImagePath().isEmpty()) {
             try {
                 Image image = new Image(
-                        App.class.getResourceAsStream(fruit.getImagePath()),
+                        App.class.getResourceAsStream(fruitBasket.getImagePath()),
                         fruitContainerWidth, 89, true, true);
                 imgBox.getStyleClass().add("fruit-image-box");
                 ImageView imageView = new ImageView(image);
@@ -79,41 +73,22 @@ public class FruitCard {
         infoContainer.setAlignment(Pos.TOP_LEFT);
         infoContainer.setPrefSize(fruitContainerWidth, 102);
 
-        Label name = new Label(fruit.getName());
+        HBox buttonContainer = new HBox(6);
+
+        Label name = new Label(fruitBasket.getName());
         name.getStyleClass().add("label");
 
-        Label description = new Label(fruit.getDescription());
+        Label description = new Label(fruitBasket.getDescription());
         description.getStyleClass().add("fruit-description-label");
         description.setWrapText(true);
 
-        TextFlow priceFlow = new TextFlow();
-        priceFlow.getStyleClass().add("fruit-price-label");
-
-        if (fruit instanceof FruitDeal) {
-            FruitDeal deal = (FruitDeal) fruit;
-
-            Text oldPrice = new Text("€ " + String.format("%.2f", deal.getOriginalPrice()));
-            oldPrice.setStrikethrough(true);
-            oldPrice.setStyle("-fx-fill: red;");
-
-            Text space = new Text("  →  ");
-
-            Text newPrice = new Text("€ " + String.format("%.2f", deal.getPrice()));
-            newPrice.setStyle("-fx-font-weight: bold; -fx-font-size: 12px; -fx-fill: green;");
-
-            priceFlow.getChildren().addAll(oldPrice, space, newPrice);
-        } else {
-            Text normalPrice = new Text("€ " + String.format("%.2f", fruit.getPrice()));
-            normalPrice.getStyleClass().add("fruit-price-label");
-            priceFlow.getChildren().add(normalPrice);
-        }
-
-        HBox buttonContainer = new HBox(6);
+        Label price = new Label("€ " + String.format("%.2f", fruitBasket.getPrice()));
+        price.getStyleClass().add("fruit-price-label");
 
         Button removeButton = new Button("-");
         removeButton.getStyleClass().add("fruit-remove-button");
         removeButton.setOnAction(e -> {
-            shoppingCartController.remove(fruit);
+            shoppingCartController.remove(fruitBasket);
             shoppingCartController.updateShoppingCart(winkelmandList, total);
             total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
         });
@@ -121,14 +96,13 @@ public class FruitCard {
         Button addButton = new Button("+");
         addButton.getStyleClass().add("fruit-add-button");
         addButton.setOnAction(e -> {
-            shoppingCartController.add(fruit);
+            shoppingCartController.add(fruitBasket);
             shoppingCartController.updateShoppingCart(winkelmandList, total);
             total.setText("Total: € " + String.format("%.2f", shoppingCartController.getTotal()));
         });
 
-        infoContainer.getChildren().addAll(name, description, priceFlow);
+        infoContainer.getChildren().addAll(name, description, price);
         buttonContainer.getChildren().addAll(removeButton, addButton);
-
         fruitContainer.getChildren().addAll(imgBox, infoContainer, buttonContainer);
 
         return fruitContainer;

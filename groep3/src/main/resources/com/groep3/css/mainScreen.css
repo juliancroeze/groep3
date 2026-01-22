@@ -117,8 +117,9 @@
 .fruit-price-label {
     -fx-font-size: 12px;
     -fx-font-weight: bold;
-    -fx-text-fill: #27ae60;
+    -fx-fill: #27ae60;
 }
+
 
 .fruit-add-button {
     -fx-font-size: 12px;
