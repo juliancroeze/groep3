@@ -16,7 +16,7 @@ public class OrganicFruitBasket extends FruitBasket {
 
     @Override
     public String getDescription() {
-        return super.getDescription() + " (100% biologisch)";
+        return description + " (100% biologisch)";
     }
 
     public double getOriginalPrice() {

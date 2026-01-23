@@ -3,7 +3,7 @@ package com.groep3.model;
 public abstract class Product {
 
     private String name;
-    private String description;
+    protected String description;
     private String imagePath;
     protected double price;
 

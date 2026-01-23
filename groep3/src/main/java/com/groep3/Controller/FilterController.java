@@ -20,7 +20,8 @@ public class FilterController {
     private PriceLowHighFilter priceLowHighFilter;
     private PriceHighLowFilter priceHighLowFilter;
 
-    public void init(ProductController productController, FruitCard fruitCard, BasketCard basketCard, GridPane fruitItems) {
+    public void init(ProductController productController, FruitCard fruitCard, BasketCard basketCard,
+            GridPane fruitItems) {
         this.productController = productController;
         this.fruitCard = fruitCard;
         this.basketCard = basketCard;
@@ -57,8 +58,19 @@ public class FilterController {
         }
     }
 
-    public void applyFilterAZ() { azFilter.apply(); }
-    public void applyFilterZA() { azFilter.apply(); }
-    public void applyFilterPriceLowHigh() { priceLowHighFilter.apply(); }
-    public void applyFilterPriceHighLow() { priceHighLowFilter.apply(); }
+    public void applyFilterAZ() {
+        azFilter.apply();
+    }
+
+    public void applyFilterZA() {
+        azFilter.apply();
+    }
+
+    public void applyFilterPriceLowHigh() {
+        priceLowHighFilter.apply();
+    }
+
+    public void applyFilterPriceHighLow() {
+        priceHighLowFilter.apply();
+    }
 }

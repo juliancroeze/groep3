@@ -9,12 +9,15 @@ public class FruitDeal extends Fruit {
     }
 
     public void setPercentage(int percentage) {
-        this.percentage = Math.max(0, Math.min(100, percentage));
-        this.salePercentageLabel = "-" + this.percentage + "%";
+        this.percentage = percentage;
     }
 
     public int getPercentage() {
         return percentage;
+    }
+
+    public void setSalePercentageLabel(String salePercentageLabel) {
+        this.salePercentageLabel = "-" + percentage + "%";
     }
 
     public String getSalePercentageLabel() {
@@ -23,10 +26,10 @@ public class FruitDeal extends Fruit {
 
     @Override
     public double getPrice() {
-        return super.getPrice() * (100.0 - percentage) / 100.0;
+        return price * (100.0 - percentage) / 100.0;
     }
 
     public double getOriginalPrice() {
-        return super.getPrice();
+        return price;
     }
 }

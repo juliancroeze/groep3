@@ -4,7 +4,8 @@ import com.groep3.views.FruitCard;
 import javafx.scene.layout.GridPane;
 
 public class ZAFilter extends FruitFilter {
-    public ZAFilter(FilterController filterController, ProductController productController, FruitCard fruitCard, GridPane fruitItems) {
+    public ZAFilter(FilterController filterController, ProductController productController, FruitCard fruitCard,
+            GridPane fruitItems) {
         super(filterController, productController, fruitCard, fruitItems);
     }
 
