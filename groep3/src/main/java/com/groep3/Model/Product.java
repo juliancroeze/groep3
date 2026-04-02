@@ -1,6 +1,6 @@
 package com.groep3.model;
 
-public abstract class Product {
+public class Product {
 
     private String name;
     protected String description;
@@ -43,6 +43,9 @@ public abstract class Product {
     }
 
     public void setPrice(double price) {
+        if (price < 0) {
+            throw new IllegalArgumentException("Price cannot be negative");
+        }
         this.price = price;
     }
 
